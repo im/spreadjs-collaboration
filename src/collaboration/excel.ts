@@ -3,10 +3,12 @@ const collaUrl = 'ws://localhost:80'
 
 import ReconnectingWebsocket from 'reconnecting-websocket'
 import Connection from './connection'
+import { v4 as uuidv4 } from 'uuid'
 
 export default class Excel {
     connection: any = null
     spread: any = null
+    uuid = uuidv4()
     constructor(spread: any) {
         this.spread = spread
 
@@ -20,12 +22,14 @@ export default class Excel {
         const _this = this
         this.spread.commandManager().addListener("anyscLicenser", function () {
             for (let i = 0; i < arguments.length; i++) {
+                
                 const cmd = arguments[i].command;
-                if (cmd.clipboardText) {
-                    cmd.fromSheet = null;
-                    cmd.fromRanges = null;
+                
+                if (!cmd.uuid) {
+                    cmd.uuid = _this.uuid
+                    _this.connection.send(cmd)
                 }
-                _this.connection.send(cmd)
+                
             }
         })
     }

@@ -30,7 +30,9 @@ export default class Connection {
     handleMessage(message: any) {
         const commandManager = this.spread.commandManager()
         const cmd = JSON.parse(message.data)
+        console.log('cmd: ', cmd)
         commandManager.execute(cmd)
+        
     }
 
     send(message: any) {

@@ -80,7 +80,7 @@ export default class Spread extends Vue {
             // console.timeEnd('start')
         });
         this.$nextTick(() => {
-            new Excel(_this.designer.wrapper.spread)
+            new Excel(designer.wrapper.spread)
         })
     }
 
