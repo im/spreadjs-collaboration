@@ -10,12 +10,16 @@ export default class Excel {
     spread: any = null
     designer: any = null
     spreadActions: any = null
+    commandManager: any = null
+    undoManager: any = null
     uuid = uuidv4()
     registerFlag = false
     constructor(designer: any) {
         this.designer = designer
         this.spread = designer.wrapper.spread
         this.spreadActions = this.designer.spreadActions
+        this.commandManager = this.spread.commandManager()
+        this.undoManager = this.spread.undoManager()
 
         this.initConnection()
 
@@ -25,12 +29,10 @@ export default class Excel {
 
     initCommand() {
         const _this = this
-        this.spread.commandManager().addListener("anyscLicenser", function () {
-            if (_this.registerFlag) {
-                return _this.registerFlag = false
-            }
-            for (let i = 0; i < arguments.length; i++) {
+        this.commandManager.addListener("anyscLicenser", function () {
+            if (_this.registerFlag) return _this.registerFlag = false
 
+            for (let i = 0; i < arguments.length; i++) {
                 const cmd = arguments[i].command;
                 console.log('cmd: ', cmd)
                 if (!cmd.uuid) {
@@ -40,6 +42,16 @@ export default class Excel {
 
             }
         })
+
+        const oldUndo = this.undoManager.undo;
+        this.undoManager.undo = function () {
+            console.log('arguments: ', arguments);
+            return oldUndo.apply(this, arguments);
+        }
+
+        this.undoManager.redo = () => {
+            console.log('redo: ', arguments);
+        }
     }
 
     // 兼容 doAction 方法
@@ -76,11 +88,11 @@ export default class Excel {
     // 如果当前指定没有注册 调用spreadActions 里面的注册方法注册指定
     // 因为所有的指定对应的参数不同 使用formatParams 格式化 options
     handleCommand(params: any) {
-        const commandManager = this.spread.commandManager()
+        const commandManager = this.commandManager
         const { cmd, value } = params
-        if (cmd && !commandManager.getCommand(cmd)) {
+        console.log('handleCommand: ', cmd)
+        if (cmd && !commandManager.getCommand(cmd) && ~cmd.indexOf('designer')) {
             this.registerFlag = true
-
             const cmdName = cmd.split('.')[1]
             const registerCommand = this.spreadActions[cmdName]
 
