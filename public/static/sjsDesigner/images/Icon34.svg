@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>No Cell Icon34</title>
+    <desc>Created with Sketch.</desc>
+    <g id="No-Cell-Icon34" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flag-Yellow" transform="translate(2.000000, 0.000000)">
+            <rect id="Rectangle-28-Copy" fill="#3E403D" x="0" y="0" width="2" height="16"></rect>
+            <polygon id="Path-4-Copy" fill="#FFD95D" points="3 0 3 9 12 4.5"></polygon>
+            <path d="M4,1.61803399 L4,7.38196601 L9.76393202,4.5 L4,1.61803399 Z M3,0 L12,4.5 L3,9 L3,0 Z" id="Path-4-Copy" fill="#EE8815" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

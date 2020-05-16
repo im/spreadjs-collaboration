@@ -1,0 +1,13 @@
+<!--
+* ${ComponentName}
+* @author ${username}
+* @date ${curDate}
+* @since ${version}
+-->
+
+<template>
+    <div>
+        <h1>${ComponentName}</h1>
+    </div>
+</template>
+<style src="./${componentName}.styl" lang="stylus" scoped></style>

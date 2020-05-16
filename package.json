@@ -1,0 +1,49 @@
+{
+    "name": "docs",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint",
+        "cli": "node ./src/tools/cli.js",
+        "format": "prettier --write src/**/*.ts"
+    },
+    "dependencies": {
+        "axios": "^0.19.2",
+        "core-js": "^3.6.4",
+        "element-ui": "^2.13.1",
+        "express": "^4.17.1",
+        "koa-websocket": "^6.0.0",
+        "koa2": "^2.0.0-alpha.7",
+        "moment": "^2.25.3",
+        "reconnecting-websocket": "^4.4.0",
+        "vue": "^2.6.11",
+        "vue-class-component": "^7.2.3",
+        "vue-property-decorator": "^8.4.1",
+        "vue-router": "^3.1.6",
+        "vuex": "^3.1.3"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.26.0",
+        "@typescript-eslint/parser": "^2.26.0",
+        "@vue/cli-plugin-babel": "^4.3.0",
+        "@vue/cli-plugin-eslint": "^4.3.0",
+        "@vue/cli-plugin-router": "^4.3.0",
+        "@vue/cli-plugin-typescript": "^4.3.0",
+        "@vue/cli-plugin-vuex": "^4.3.0",
+        "@vue/cli-service": "^4.3.0",
+        "@vue/eslint-config-typescript": "^5.0.2",
+        "colors": "^1.4.0",
+        "copy-webpack-plugin": "^5.1.1",
+        "eslint": "^6.7.2",
+        "eslint-plugin-vue": "^6.2.2",
+        "fs-extra": "^9.0.0",
+        "nodemon": "^2.0.4",
+        "prompt": "^1.0.0",
+        "stylus": "^0.54.7",
+        "stylus-loader": "^3.0.2",
+        "typescript": "~3.8.3",
+        "vue-template-compiler": "^2.6.11"
+    }
+}

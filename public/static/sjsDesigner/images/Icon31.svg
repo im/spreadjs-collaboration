@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>No Cell Icon31</title>
+    <desc>Created with Sketch.</desc>
+    <g id="No-Cell-Icon31" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Warning-Yellow" transform="translate(6.000000, 0.000000)">
+            <g id="Group-3" transform="translate(0.800000, 0.888889)" fill="#FFD95D">
+                <rect id="Rectangle-27" x="0" y="0" width="2.4" height="8.88888889"></rect>
+                <rect id="Rectangle-27-Copy" x="0" y="11.3777778" width="2.4" height="2.66666667"></rect>
+            </g>
+            <g id="Group-3" fill="#EE8815" fill-rule="nonzero">
+                <path d="M0.8,0.888888889 L0.8,9.77777778 L3.2,9.77777778 L3.2,0.888888889 L0.8,0.888888889 Z M0,0 L4,0 L4,10.6666667 L0,10.6666667 L0,0 Z" id="Rectangle-27"></path>
+                <path d="M0.8,12.2666667 L0.8,14.9333333 L3.2,14.9333333 L3.2,12.2666667 L0.8,12.2666667 Z M0,11.3777778 L4,11.3777778 L4,15.8222222 L0,15.8222222 L0,11.3777778 Z" id="Rectangle-27-Copy"></path>
+            </g>
+        </g>
+    </g>
+</svg>

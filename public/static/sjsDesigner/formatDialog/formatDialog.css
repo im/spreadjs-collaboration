@@ -1,0 +1,1487 @@
+/* This is a function for icons position*/
+
+.format-dialog {
+    width: 610px;
+}
+
+.format-dialog .ui-tabs {
+    border: 0;
+    padding: 0px;
+}
+
+.format-dialog .tab-page {
+    height: 350px;
+    border: 1px solid #d3d3d3;
+    border-top: none;
+}
+
+.format-dialog .category-label {
+    margin-bottom: -0.5em;
+    margin-top: 0.5em;
+    display: block;
+    /* float: left; */
+    clear: left;
+}
+
+.format-dialog .category-label label {
+    background-color: white;
+    padding: 0.5em 0.5em 0.5em 0;
+}
+
+.format-dialog .tab-alignment-left {
+    width: 420px;
+    height: 350px;
+    float: left;
+}
+.format-dialog .tab-alignment-right {
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 140px;
+    height: 200px;;
+    float: left;
+    border: 1px groove lightgray;
+}
+.format-dialog .category {
+    padding-top: 1em;
+    border-top: 1px groove lightgray;
+    clear: both;
+}
+.format-dialog .orientation {
+    width: 130px;
+    height: 180px;
+    position: relative;
+}
+.format-dialog .text-top {
+    width: 61px;
+    height: 10px;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    left: 6px;
+}
+
+.format-dialog .orientation .left-textShow {
+    width: 30px;
+    height: 150px;
+    margin-top: 14px;
+    margin-left: 7px;
+    float: left;
+    border: 1px groove lightgray;
+    text-align: center;
+    background-color: white;
+    color: black;
+    position: relative;
+}
+.left-textShow .left-text-value {
+    width: 9px;
+    word-break: break-all;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    cursor: default;
+}
+
+.forVerticalText {
+    background-color: black !important;
+    color: white !important;
+}
+
+.format-dialog .orientation .right-textShow {
+    width: 80px;
+    height: 150px;
+    margin-top: 14px;
+    margin-left: 7px;
+    float: left;
+    border: 1px groove lightgray;
+    position: relative;
+}
+
+.format-dialog .orientation .squreIcon {
+    width: 5px;
+    height: 5px;
+    background: black;
+    transform: rotate(45deg);
+    position: absolute;
+}
+.format-dialog .orientation .circleIcon {
+    width: 3px;
+    height: 3px;
+    border-radius: 1.5px;
+    background: black;
+    position: absolute;
+}
+.orientation .rotatePositive90 {
+    top: 5px;
+    left: 8px;
+}
+.orientation .rotatePositive75 {
+    top: 9px;
+    left: 25px;
+}
+.orientation .rotatePositive60 {
+    top: 15px;
+    left: 40px;
+}
+.orientation .rotatePositive45 {
+    top: 24px;
+    left: 54px;
+}
+.orientation .rotatePositive30 {
+    top: 41px;
+    left: 65px;
+}
+.orientation .rotatePositive15 {
+    top: 57px;
+    left: 72px;
+}
+.orientation .rotate0 {
+    top: 74px;
+    left: 75px;
+}
+.orientation .rotateNegative15 {
+    bottom: 55px;
+    left: 71px;
+}
+.orientation .rotateNegative30 {
+    bottom: 39px;
+    left: 65px;
+}
+.orientation .rotateNegative45 {
+    bottom: 25px;
+    left: 53px;
+}
+.orientation .rotateNegative60 {
+    bottom:  15px;
+    left: 40px;
+}
+.orientation .rotateNegative75 {
+    bottom: 8px;
+    left: 24px;
+}
+.orientation .rotateNegative90 {
+    bottom: 6px;
+    left: 5px;
+}
+.orientation .right-text {
+    position: absolute;
+    top: 67px;
+    left: 8px;
+    transform: rotate(0deg);
+    transform-origin: left center;
+    white-space: nowrap;
+    -ms-user-select: none;
+    cursor: default;
+}
+.orientation .bottom-textShow {
+    width: 130px;
+    height: 50px;
+    margin-top: 7px;
+    margin-left: 7px;
+    float: left;
+}
+
+.format-dialog .category .group {
+    float: left;
+}
+
+.format-dialog .category .group>div {
+    margin: 1em;
+}
+
+.format-dialog .indent.group {
+    margin-top: 1.5em;
+}
+
+.format-dialog .indent.group .column1{
+    width: 4em;
+}
+
+.format-dialog .indent.group .column2 {
+    width: 6em;
+}
+
+.format-dialog .bottom-textShow .column2{
+    width: 50px;
+}
+.format-dialog .bottom-textShow .column1{
+    width: 35px;
+}
+.format-dialog .column1,
+.format-dialog .column2 {
+    display: inline-block;
+}
+
+.format-dialog .column1 {
+    width: 6em;
+}
+
+.format-dialog .column2 {
+    width: 10em;
+}
+
+.format-dialog .sample-fieldset {
+    height: 90px;
+    border: 1px solid #aaaaaa;
+}
+
+.format-dialog .sample-fieldset .show-color-span {
+    display: block;
+    width: inherit;
+    height: 65px;
+    margin: 10px 5px 10px 5px;
+}
+
+.format-dialog .no-color-button,
+.format-dialog .more-color-button {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 176px;
+    text-align: center;
+}
+
+.format-dialog .line-border-div {
+    float: left;
+    display: block;
+    height: 220px;
+    width: 155px;
+}
+
+.format-dialog .line-border-div .line-border-fieldset {
+    width: 125px;
+    height: 206px;
+    border-color: #e6e6e6;
+}
+
+.format-dialog .line-border-presets-div {
+    float: left;
+    display: block;
+    height: 70px;
+    width: 250px;
+    margin-left: 10px;
+}
+
+.format-dialog .line-border-presets-div .line-border-presets-fieldset {
+    height: 70px;
+    width: 245px;
+    border: 0px;
+    border-top: 1px groove lightgray;
+    padding-left: 0;
+    padding-top: 2px;
+    padding-right: 0;
+}
+
+.format-dialog .line-border-presets-div .line-border-presets-fieldset .big-border-icon {
+    height: 35px;
+    width: 35px;
+}
+
+.format-dialog .line-border-presets-div .line-border-presets-fieldset .no-border-button {
+    margin-left: 25px;
+    margin-right: 40px;
+}
+
+.format-dialog .line-border-presets-div .line-border-presets-fieldset .outside-border-button {
+    margin-right: 40px;
+}
+
+.format-dialog .line-border-presets-div .line-border-presets-fieldset .ui-button-text {
+    padding: 0px;
+}
+
+.format-dialog .line-border-presets-div .line-border-presets-fieldset .big-border-icon-span {
+    background-image: url(../images/icons.png);
+    display: inline-block;
+    background-repeat: no-repeat;
+    height: 32px;
+    width: 32px;
+}
+
+.format-dialog .line-border-presets-div .line-border-presets-fieldset .no-border-span {
+    background-position: -16px -3808px;
+}
+
+.format-dialog .line-border-presets-div .line-border-presets-fieldset .outside-border-span {
+    background-position: -16px -3776px;
+}
+
+.format-dialog .line-border-presets-div .line-border-presets-fieldset .inside-border-span {
+    background-position: -16px -3744px;
+}
+
+.format-dialog .line-border-presets-div .line-border-presets-fieldset .border-label {
+    display: block;
+    float: left;
+    margin-top: 8px;
+    width: 33%;
+    text-align: center;
+}
+
+.format-dialog .line-border-detail-div {
+    float: left;
+    display: block;
+    height: 140px;
+    width: 250px;
+    position: relative;
+    margin-left: 10px;
+    top: 10px;
+}
+
+.format-dialog .line-border-detail-div .line-border-detail-fieldset {
+    height: 140px;
+    width: 245px;
+    border: 0px;
+    border-top: 1px groove lightgray;
+    padding-left: 0px;
+    padding-right: 0;
+}
+
+.format-dialog .line-border-detail-div .line-border-detail-fieldset .small-border-icon-label {
+    background-image: url(../images/icons.png);
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    height: 16px;
+    width: 16px;
+    margin: 1px;
+}
+
+.format-dialog .line-border-detail-div .line-border-detail-fieldset .top-line {
+    background-position: 0px -3264px;
+    position: absolute;
+    margin: 5px;
+}
+
+.format-dialog .line-border-detail-div .line-border-detail-fieldset .horizontal-inner-line {
+    background-position: 0px -1680px;
+    position: absolute;
+    top: 55px;
+    margin: 5px;
+}
+
+.format-dialog .line-border-detail-div .line-border-detail-fieldset .bottom-line {
+    background-position: 0px -416px;
+    position: absolute;
+    top: 87px;
+    margin: 5px;
+}
+
+.format-dialog .line-border-detail-div .line-border-detail-fieldset .diagonal-up-line {
+    background-position: 0px -4240px;
+    position: absolute;
+    top: 120px;
+    margin: 5px;
+}
+
+.format-dialog .line-border-detail-div .line-border-detail-fieldset .border-line-panel {
+    position: absolute;
+    left: 50px;
+    display: block;
+    width: 180px;
+    height: 90px;
+    border: 1px solid black;
+}
+
+.format-dialog .line-border-detail-div .line-border-detail-fieldset .left-line {
+    background-position: 0px -1728px;
+    position: absolute;
+    left: 50px;
+    top: 120px;
+    margin: 5px;
+}
+
+.format-dialog .line-border-detail-div .line-border-detail-fieldset .vertical-inner-line {
+    background-position: 0px -1696px;
+    position: absolute;
+    left: 130px;
+    top: 120px;
+    margin: 5px;
+}
+
+.format-dialog .line-border-detail-div .line-border-detail-fieldset .right-line {
+    background-position: 0px -2560px;
+    position: absolute;
+    left: 205px;
+    top: 120px;
+    margin: 5px;
+}
+
+.format-dialog .line-border-detail-div .line-border-detail-fieldset .diagonal-down-line {
+    background-position: 0px -4256px;
+    position: absolute;
+    left: 235px;
+    top: 120px;
+    margin: 5px;
+}
+
+.format-dialog .border-line-panel {
+    position: relative;
+}
+
+.format-dialog .border-line-panel .corner {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid;
+}
+
+.format-dialog .border-line-panel .left-top-corner {
+    border-color: transparent #e6e6e6 #e6e6e6 transparent;
+}
+
+.format-dialog .border-line-panel .right-top-corner {
+    border-color: transparent transparent #e6e6e6 #e6e6e6;
+    left: 168px;
+}
+
+.format-dialog .border-line-panel .left-bottom-corner {
+    border-color: #e6e6e6 #e6e6e6 transparent transparent;
+    top: 79px;
+}
+
+.format-dialog .border-line-panel .right-bottom-corner {
+    border-color: #e6e6e6 transparent transparent #e6e6e6;
+    left: 168px;
+    top: 79px;
+}
+
+.format-dialog .border-line-panel .top-middle-horizontal {
+    border-color: transparent transparent #e6e6e6 transparent;
+    left: 85px;
+    top: -2px;
+}
+
+.format-dialog .border-line-panel .left-middle-horizontal {
+    border-color: transparent transparent #e6e6e6 transparent;
+    top: 32px;
+}
+
+.format-dialog .border-line-panel .right-middle-horizontal {
+    border-color: transparent transparent #e6e6e6 transparent;
+    left: 169px;
+    top: 32px;
+}
+
+.format-dialog .border-line-panel .bottom-middle-horizontal {
+    border-color: transparent transparent #e6e6e6 transparent;
+    left: 85px;
+    top: 69px;
+}
+
+.format-dialog .border-line-panel .top-middle-vertical {
+    border-color: transparent transparent transparent #e6e6e6;
+    left: 90px;
+}
+
+.format-dialog .border-line-panel .left-middle-vertical {
+    border-color: transparent transparent transparent #e6e6e6;
+    left: 10px;
+    top: 37px;
+}
+
+.format-dialog .border-line-panel .right-middle-vertical {
+    border-color: transparent transparent transparent #e6e6e6;
+    left: 169px;
+    top: 37px;
+}
+
+.format-dialog .border-line-panel .bottom-middle-vertical {
+    border-color: transparent transparent transparent #e6e6e6;
+    left: 90px;
+    top: 79px;
+}
+
+.format-dialog .border-line-panel .border-sheet {
+    position: absolute;
+    height: 70px;
+    width: 158px;
+    top: 10px;
+    left: 11px;
+}
+
+.format-dialog .border-comments {
+    margin-top: 240px;
+}
+
+.format-dialog .format-number-label {
+    margin-bottom: 3px;
+    margin-top: 2px;
+}
+
+.format-dialog .category-select {
+    width: 96%;
+}
+
+.format-dialog .tab-number-category {
+    display: inline-block;
+    width: 26%;
+    float: left;
+}
+
+.format-dialog .tab-number-sample {
+    float: left;
+    width: 70%;
+}
+
+.format-dialog .tab-number-sample-fieldset {
+    border: 1px solid rgba(170, 170, 170, 0.7);
+    height: 34px;
+}
+
+.format-dialog .sample-display-container {
+    width: 350px;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.format-dialog .tab-number-setting {
+    float: left;
+    width: 331px;
+    margin-left: 3px;
+    height: 180px;
+}
+
+.format-dialog .tab-number-comments {
+    float: left;
+    width: 525px;
+    height: 50px;
+}
+
+.format-dialog .negative-number-select {
+    width: 331px;
+    height: 117px;
+}
+
+.format-dialog .date-type-locale-select {
+    width: 331px;
+}
+
+.format-dialog .date-type-calendar-select {
+    width: 331px;
+}
+
+.format-dialog .time-type-locale-select {
+    width: 331px;
+}
+
+.format-dialog .special-type-locale-select {
+    width: 331px;
+}
+
+.format-dialog .decimal-places-input {
+    width: 100px;
+}
+
+.format-dialog .accounting-decimal-places-input {
+    width: 100px;
+}
+
+.format-dialog .scientific-decimal-places-input {
+    width: 100px;
+}
+
+.format-dialog .percentage-decimal-places-input {
+    width: 100px;
+}
+
+.format-dialog .currency-decimal-places-input {
+    width: 100px;
+}
+
+.format-dialog .fraction-type-select {
+    width: 331px;
+}
+
+.format-dialog .special-type-select {
+    width: 331px;
+}
+
+.format-dialog .time-type-select {
+    width: 331px;
+}
+
+.format-dialog .date-type-select {
+    width: 331px;
+    height: 90px;
+}
+
+.format-dialog .currency-type-select {
+    width: 331px;
+}
+
+.format-dialog .sample-spread {
+    display: none;
+}
+
+.format-dialog .custom-type-input {
+    width: 331px;
+    margin: 0px;
+}
+
+.format-dialog .custom-type-select {
+    margin: 0px;
+    width: 331px;
+}
+
+.format-dialog .custom-type-button {
+    width: 80px;
+    height: 27px;
+    margin-left: 253px;
+    margin-top: 22px;
+}
+
+.format-dialog .accounting-symbol-dropdown {
+    width: 281px;
+}
+
+.format-dialog .currency-symbol-dropdown {
+    width: 281px;
+}
+
+.format-dialog .separator-input {
+    margin: 0 3px 0 0;
+    vertical-align: bottom;
+}
+
+.format-dialog .gcui-numberpicker {
+    margin: 8px 0;
+}
+
+.format-dialog .cell-protection {
+    margin: 3px 0;
+}
+
+.format-dialog .column-container {
+    float: left;
+    width: 265px;
+    height: 360px;
+    padding: 0px 5px;
+}
+
+.format-dialog .padding-container {
+    height: 156px;
+}
+
+.format-dialog .padding-fieldset {
+    padding: 10px;
+    width: 222px;
+    height: 134px;
+    border: 1px solid lightgrey;
+    margin: 0;
+}
+
+.format-dialog .padding-fieldset div {
+    margin: 5px;
+}
+
+.format-dialog .preview-container {
+    height: 189px;
+}
+
+.format-dialog .preview-fieldset {
+    padding: 10px;
+    width: 222px;
+    height: 167px;
+    border: 1px solid lightgrey;
+    margin: 0;
+}
+
+.format-dialog .preview-spread-container {
+    height: 130px;
+    width: 200px;
+    margin: 10px;
+    border: 1px solid gray;
+}
+
+.format-dialog .label-alignment-container {
+    margin-top: 5px;
+}
+
+.format-dialog .label-alignment-button-container {
+    margin: 5px 5px;
+    width: 110px;
+    height: 40px;
+}
+
+.format-dialog .label-alignment-button {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0px 5px;
+    float: left;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.format-dialog .label-alignment-button:hover {
+    background-color: lightgrey;
+}
+
+.format-dialog .label-alignment-button span {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
+
+.format-dialog .label-alignment-topLeft span {
+    background-position: 0px -4176px;
+    background-image: url("../images/icons.png");
+}
+
+.format-dialog .label-alignment-topCenter span {
+    background-position: 0px -4160px;
+    background-image: url("../images/icons.png");
+}
+
+.format-dialog .label-alignment-topRight span {
+    background-position: 0px -4192px;
+    background-image: url("../images/icons.png");
+}
+
+.format-dialog .label-alignment-bottomLeft span {
+    background-position: 0px -4128px;
+    background-image: url("../images/icons.png");
+}
+
+.format-dialog .label-alignment-bottomCenter span {
+    background-position: 0px -4112px;
+    background-image: url("../images/icons.png");
+}
+
+.format-dialog .label-alignment-bottomRight span {
+    background-position: 0px -4144px;
+    background-image: url("../images/icons.png");
+}
+
+.format-dialog .label-margin-container {
+    margin-top: 5px;
+    width: 250px;
+    height: 120px;
+}
+
+.format-dialog .label-fonts-container {
+    margin-top: 5px;
+}
+
+.format-dialog .label-font-container {
+    height: 20px;
+    margin: 5px 10px;
+}
+
+.format-dialog .label-font-family {
+    float: left;
+    width: 60px;
+}
+
+.format-dialog .label-font-size {
+    float: left;
+    width: 40px;
+}
+
+.format-dialog .label-visibility-container {
+    margin-top: 10px;
+}
+
+.format-dialog .label-visibility {
+    width: 100px;
+    margin: 5px 10px;
+}
+
+.format-dialog .label-fonts-button {
+    display: inline-block;
+    float: left;
+    width: 16px;
+    height: 16px;
+    padding: 4px;
+    margin: 0px 4px;
+}
+
+.format-dialog .label-fonts-button:hover {
+    background-color: lightgrey;
+}
+
+.format-dialog .label-fonts-button div {
+    width: 16px;
+    height: 16px;
+}
+
+.format-dialog .label-font-weight div {
+    background-position-x: 0px;
+    background-position-y: -400px;
+    background-image: url("../images/icons.png");
+}
+
+.format-dialog .label-font-style div {
+    background-position-x: 0px;
+    background-position-y: -1712px;
+    background-image: url("../images/icons.png");
+}
+
+.format-dialog .label-font-color div {
+    background-position-x: 0px;
+    background-position-y: -1168px;
+    background-image: url("../images/icons.png");
+}
+
+.format-dialog .label-text-input {
+    margin: 5px 10px;
+    width: 200px;
+}
+
+.format-dialog .button-active {
+    background-color: lightgrey;
+}
+
+.format-dialog .cell-label {
+    border: 1px solid lightgrey;
+    height: 325px;
+    padding: 9px 10px;
+    margin: 0;
+}
+
+.format-dialog .label-margin-column {
+    display: inline-block;
+    width: 38px;
+}
+
+.format-dialog .label-margin-group {
+    display: inline-block;
+}
+
+.format-dialog .label-margin-group div {
+    margin: 5px;
+}
+
+.format-dialog .label-margin-group-container {
+    margin-left: 5px;
+}
+
+.format-dialog .move-up-cell-button {
+    background-position: 0px -4096px;
+}
+
+.format-dialog .move-down-cell-button {
+    background-position: 0px -4080px;
+}
+
+.format-dialog .format-icon {
+    background-image: url(../images/icons.png);
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    top: 5px;
+    left: 8px;
+}
+
+.format-dialog #tab-cellbutton .toolbar-container {
+    width: 100%;
+    height: 30px;
+}
+
+.format-dialog #tab-cellbutton .toolbar-container .button {
+    display: inline-block;
+    float: left;
+    width: 16px;
+    height: 16px;
+    padding: 4px;
+    margin: 0px 4px;
+}
+
+.format-dialog #tab-cellbutton .toolbar-container span {
+    font-family: "Helvetica Neue", "Segoe UI", Helvetica, Verdana, sans-serif;
+    font-size: 12px;
+    vertical-align: top;
+}
+
+.format-dialog #tab-cellbutton .toolbar-container button {
+    height: 24px;
+}
+
+.format-dialog #tab-cellbutton .toolbar-container .cellbutton-icon {
+    background-image: url(../images/icons.png);
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
+
+.format-dialog #tab-cellbutton .toolbar-container .ui-button-text {
+    padding: 4px;
+    padding-top: 3px;
+}
+
+.format-dialog #tab-cellbutton .toolbar-container .add-cellbutton {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAc1JREFUOBHNU00rRGEUfu6dQcmMUlKKKIWNj0RZ24yykYWVyZI/IH6AiB/gYyFJWVhMhFmxkGRjIpOPKAsfmylfw8w1487rOe+4urg/wKlnzn3Px3Pec94zhlKqHECQKCB8RCGRIWwiS7wQSeKDsA3DUNTfYvIriOXQCmLz/fxux1xbTGs5iz1PLsSe4qfVh8beDRwtjSBYta2jrqK9PHeheWBK+wHDM1uMbKGBCKvLrTV1XG0ry1Ray1nseX+AupD4Q2TQ2MRrH+sKg0eAP8du2dliizbN1O7j8VXhg2Zbuhd80RgwtoSggaYOXEX7kBrqQf2tqc6rkSxZxVNpK9IZhSzHp5jont79g42dk3fIEHM4nKvB7ngXimc3pLIkl+yNoigRyyf9SmYOKst8SKXzBDbOIj1oCU+jrjsizmdWTnRMIHCx9LOsOF1iWVlICz/2YGzhLj4YqtBhcu2c9E64r+9wTK7cQJ7xlbAIGY3vNpFCVlZIRLI8rq99/JEbCIFsm5NiPr28Q7GiI16VHZ8zAzlLisZbKoPT66RT3In9o+OMSVsZPQN5CUfMzuGDdb5Zd85VWmbhJVyrze/N4jDdRDqefxxXM14U/8H2CfbM1UU3ltxnAAAAAElFTkSuQmCC');
+}
+
+.format-dialog #tab-cellbutton .toolbar-container .delete-cellbutton {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAbhJREFUOBFjYBgFjA2rfmz9z/DfCxQU//8zMDAyQmhw0ADZDEAxBhANphi3NYZxeEN4EJLl6/efXo467AzSwszI4hjsZ+/+Muy7/BNsEbIky/fvP4GauZDFUNhQyxmkhJgZQGr///8PEwK7j+X7j18oGpA5TEAlzEwMDExA/O8fUObfH5A0OxDDnPuL6dt3/Ab0tpQyRPjaMJw9vodBgAtkCoP89evXFd08PIJAhjHhcwEo/PJKGhjUNbUYCrMTGL4/PcpQX9+YGhQcNtvBzu4JyDRgGOB2AcjZrBzcDB39sxlWL5nF0N1RwKCspOi/e9f2MhkZmdtA/b/BXrh67zPIMEwADANQtL568Yxh3brVDDrG9gxv3r4VePbsGSdQMTgQGU1Sj29lhKYDZBNAgSfAy8ogyfWBYc+iHAYVHTsGr+iqc99vL92ycuVK73PnziSwsbE9RNaDwgZGFzsQa+jq6V/S1TO4+eXLF1cgXxkkFhEVVePi4tYOZIuiaELmACVBBigrK6tePXDggC+QLQPEnEDMC8SydnYOJUBaEOQPrAAoCYprHigGhfQnIAbRQM8xsAExC4gPAL2ur/UWt2cwAAAAAElFTkSuQmCC');
+}
+
+.format-dialog #tab-cellbutton .toolbar-container .move-up-cellbutton {
+    background-position: 0px -4096px;
+}
+
+.format-dialog #tab-cellbutton .toolbar-container .move-down-cellbutton {
+    background-position: 0px -4080px;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-container {
+    height: 350px;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-list-container {
+    float: left;
+    width: 140px;
+    height: 100%;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-list-container select {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container {
+    float: left;
+    margin-left: 10px;
+    width: 440px;
+    height: 100%;
+    border: 1px solid lightgrey;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.format-dialog #tab-cellbutton fieldset {
+    border: 1px solid lightgrey;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container .cellbutton-group {
+    height: 100%;
+    width: 50%;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container .cellbutton-item {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container .cellbutton-item .numeric {
+    width: 80px;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container .cellbutton-item .width-edit {
+    width: 80px;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container .cellbutton-item input[type="text"],
+input[type="file"] {
+    width: 103px;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container .cellbutton-item input[type="checkbox"] {
+    vertical-align: sub;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container .cellbutton-item select {
+    width: 110px;
+    height: 22px;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container .cellbutton-item .command-select {
+    width: 80px;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container .cellbutton-item .command-edit{
+    height: 22px;
+    vertical-align: middle;
+}
+
+.format-dialog .combo-editor-text{
+    width: 76px;
+    height: 22px;
+    padding: 0 0 0 2px;
+    line-height: 22px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: white;
+}
+
+.command-popup {
+    height: 250px;
+    max-height: 300px;   
+    overflow-y: auto;
+    border: solid 1px lightgray;
+}
+
+.command-popup .command-separator {
+    width: 124px;
+    height: 1px;
+    border-bottom : solid 1px lightgray;
+    margin: 6px;
+}
+
+.command-popup .command-item {
+    width: 140px;
+    height: 25px;
+    padding: 0 0 0 2px;
+}
+
+.command-popup .command-item .command-text {
+    width: 115px;
+    height: 25px;
+    display: inline-block;
+    line-height: 25px;
+}
+
+.command-popup .command-item:hover {
+    background-color: #3890FD;
+}
+
+.command-popup .selected {
+    background-color: #3890FD;
+}
+
+.command-popup .icon {
+    width: 16px;
+    height: 16px;
+    margin: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+}
+
+.command-popup .icon-undo {
+    background-image: url(../images/icons.png);
+    background-position: 0px -3344px;
+}
+
+.command-popup .icon-redo {
+    background-image: url(../images/icons.png);
+    background-position: 0px -2464px;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container .cellbutton-item .edit-dropdown-button {
+    width: 24px;
+    height: 24px;
+    vertical-align: top;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container .cellbutton-item .edit-dropdown-button.hide {
+    display: none;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container .cellbutton-item .edit-dropdown-button .ui-button-text {
+    padding: 0;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container .cellbutton-item .edit-dropdown-button .ui-button-text span {
+    vertical-align: super;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container .cellbutton-item label {
+    display: inline-block;
+    width: 80px;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container .cellbutton-preview-container {
+    width: 100%;
+    box-sizing: border-box;
+    height: 134px;
+}
+
+.format-dialog #tab-cellbutton .cellbutton-content-container .cellbutton-preview-spread-container {
+    height: 80px;
+    width: 150px;
+    border: 1px solid gray;
+    margin: 10px;
+}
+
+.dropdown-dialog {
+    margin: 10px;
+}
+
+.dropdown-dialog input[type="checkbox"] {
+    vertical-align: sub;
+}
+
+.dropdown-dialog #config-container .config {
+    display: none;
+}
+
+.dropdown-dialog #config-container.colorpicker .colorpicker-config {
+    display: block;
+}
+
+.dropdown-dialog #config-container.list .list-config {
+    display: block;
+}
+
+.dropdown-dialog #config-container.datetimepicker .calendar-config {
+    display: block;
+}
+
+.dropdown-dialog #config-container.timepicker .time-config {
+    display: block;
+}
+
+.dropdown-dialog #config-container.workflowlist .workflow-config {
+    display: block;
+    width: 330px;
+}
+
+.dropdown-dialog #config-container.slider .slider-config {
+    display: block;
+}
+
+.dropdown-dialog #config-container.monthpicker .month-config {
+    display: block;
+}
+
+.dropdown-dialog #config-container .dropdown-item label {
+    display: inline-block;
+    width: 80px;
+}
+
+.dropdown-dialog #config-container .dropdown-item {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.dropdown-dialog #config-container .time-config .min {
+    width: 70px;
+    margin-right: 10px;
+}
+
+.dropdown-dialog #config-container .time-config label {
+    width: 60px;
+    margin-left: 10px;
+}
+
+.dropdown-dialog #config-container .time-config .format {
+    margin-right: 50px;
+    width: 120px;
+}
+
+.dropdown-dialog #config-container .time-config .time-separete {
+    display: inline-block;
+    border-top: 1px solid lightgray;
+    width: 393px;
+    margin: 4px 0 4px 0;
+}
+
+.dropdown-dialog #config-container input[type="text"] {
+    width: 100px;
+}
+
+.dropdown-dialog #config-container .numeric {
+    width: 100px;
+}
+
+.dropdown-dialog #config-container select {
+    width: 100px;
+}
+
+.dropdown-dialog #config-container .slider-config label {
+    width: 60px;
+}
+
+.dropdown-dialog #config-container .slider-config .right-label {
+    margin-left: 10px;
+}
+
+.dropdown-dialog #config-container .slider-config .auto-label {
+    width: auto;
+}
+
+.dropdown-dialog #config-container .slider-config .formatString {
+    width: 125px;
+}
+
+.dropdown-dialog #config-container .slider-config .marks {
+    width: 125px;
+}
+
+.dropdown-dialog #config-container .slider-config select {
+    width: 128px;
+}
+
+.dropdown-dialog #config-container .slider-config input[type="checkbox"] {
+    margin-left: 10px;
+}
+
+.dropdown-dialog #config-container .config .action-container {
+    width: 20px;
+    height: 100%;
+    float: left;
+    padding: 5px;
+}
+
+.dropdown-dialog #config-container .config .action-icon {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
+
+.dropdown-dialog #config-container .config .add-button-icon {
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUyLjYgKDY3NDkxKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT7lop7liqA8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZyBpZD0i5aKe5YqgIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8cGF0aCBkPSJNNyw2Ljk5OTk5OTkxIEw3LDMuMzk5OTk5OTEgQzYuOTk5OTk5OTUsMy4wNjg2MjkzNyA3LjI2ODYyOTM3LDIuOCA3LjYsMi44IEM3LjkzMTM3MDYyLDIuNzk5OTk5OTUgOC4yLDMuMDY4NjI5MzcgOC4yLDMuNCBDOC4yLDMuNCA4LjIsMy40IDguMiwzLjQgTDguMiw3IEwxMS44LDcgQzEyLjEzMTM3MDcsNy4wMDAwMDAwMyAxMi40LDcuMjY4NjI5MzcgMTIuNCw3LjYgQzEyLjQsNy45MzEzNzA2MiAxMi4xMzEzNzA3LDguMiAxMS44LDguMiBMOC4yMDAwMDAwMyw4LjIgTDguMjAwMDAwMDMsMTEuOCBDOC4yMDAwMDAwMywxMi4xMzEzNzA2IDcuOTMxMzcwNjUsMTIuNCA3LjYwMDAwMDAzLDEyLjQgQzcuMjY4NjI5NCwxMi40IDcuMDAwMDAwMDMsMTIuMTMxMzcwNiA3LjAwMDAwMDAzLDExLjggTDcuMDAwMDAwMDMsOC4yIEwzLjQwMDAwMDAzLDguMiBDMy4wNjg2MjkzNyw4LjE5OTk5OTk5IDIuOCw3LjkzMTM3MDYyIDIuOCw3LjYgQzIuODAwMDAwMDEsNy4yNjg2MjkzNyAzLjA2ODYyOTM3LDcgMy40LDcgTDcsNyBaIiBpZD0iUGF0aCIgZmlsbD0iIzgwODA4MCI+PC9wYXRoPgogICAgPC9nPgo8L3N2Zz4=');
+}
+
+.dropdown-dialog #config-container .config .remove-button-icon {
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUyLjYgKDY3NDkxKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT7lh4/lsJE8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZyBpZD0i5YeP5bCRIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8cGF0aCBkPSJNMTEuNjY5Mjc1MSw4LjIwOTc0MDE2IEwzLjYwNDgxODUyLDguMjA5NzQwMTYgQzMuMjcwNzg1OTQsOC4yMDk3NDAxNiAzLDcuOTM4OTc0ODQgMyw3LjYwNDk0MjI3IEMzLDcuMjcwOTA5NjkgMy4yNzA3NjUzMiw3IDMuNjA0ODE4NTIsNyBMMTEuNjY5Mjk1Nyw3IEMxMi4wMDM0ODMsNyAxMi4yNzQxMTQyLDcuMjcwOTA5NjkgMTIuMjc0MTE0Miw3LjYwNDk0MjI3IEMxMi4yNzQxMDM5LDcuOTM4OTk1NDcgMTIuMDAzNDYyNCw4LjIwOTc0MDE2IDExLjY2OTI5NTcsOC4yMDk3NDAxNiBMMTEuNjY5Mjc1MSw4LjIwOTc0MDE2IFoiIGlkPSJQYXRoIiBmaWxsPSIjODA4MDgwIj48L3BhdGg+CiAgICA8L2c+Cjwvc3ZnPg==');
+}
+
+.dropdown-dialog #config-container .config .list-container {
+    height: 100%;
+    float: left;
+    border-left: 1px solid lightgray;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 390px;
+    overflow-y: auto;
+}
+
+.dropdown-dialog #config-container .list-config .list-config-container {
+    width: 335px;
+    height: 250px;
+}
+
+.dropdown-dialog #config-container .list-config .ztree li span.button.add {
+    margin-left: 2px;
+    vertical-align: top;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAASpJREFUOBGdk7FOwzAQhv+zEHToMzBlAd6CoRJDtqZPwMLKhLqDmLqhLn2CtFuGSgy8RbdOeYUyAEOu9xtZpJbTKliKYp/v++2zfwuilq9eb6DNPRQjQC9/p6WG4B3iFtX4adNGJAyKsjz/lu1MVR8UcCHe/ltyIyLzC80el5PJD+e8AOEvbNcKvW0DXX2BfAyQ3VHEr+RXTsBVMQW/uHEhMow71sxtx0mnxmTIOh5YV83HRDxjrAnwtP/ZjJW8fN6Z2pASqXpT0vnyxYftBj6T15WCumJndpO1GeaaCUE5JIcdxfEwT9Z5h/1F+vXMnSbgFnRYP9I7sCHr6G3as7eAMWTtDAB626x8FVu5q3ZamQxZfwv0NL3tRN6OlcM55oR3QAGLHba+z3kPMPp5t6SOEqEAAAAASUVORK5CYII=') !important;
+    background-position: 0 0;
+    margin-right: 2px;
+}
+
+.dropdown-dialog #config-container .list-config .ztree li span.button.remove {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAaZJREFUOBGVUz1LA0EQnUliNJ0iIik8MYWCAQsrawvBQlKI4A9Qo0QQBfurbARBMIriDxDEQiyEFHaWNkIELZREIRgR0oiar3HfXjZ3CUbiFnez8+a9nZmdZWpamcRslMqVBSKZImLLgSWr7BQF/MeDybO0l8JmI/Zc8DlX3BHiFRHxGb/3z8xVJjkYCAc32D4tAtMCIGdzpUtFnPQSWtlK6MoKd0xDRJ+kT26TDFEcBA5srtV8a9IODg1T98w8vR1tk3x9Ioa4K0R9S5tUuDih4tOD41PlqJ6M+dAwQwYCcig6Tv1rtiaCDBs+YGZpjuJyJh5Li9CoAQyhMzJC34/32m3s1127nhUAZrpTPTBX5UggbQSCDGIrshPN1q/X5YDtfZUAhsRdzSWYTExP3EhYkkUJKa8T3fam7S0HWOPilH99IvrCIssK0ENVyuco0NNL+f0tp2HlMn3cXFPQiuhrrBTetQamUl3joiZl47G9qlCiUf3vnY8paR2er+om6tlW4/k3xUUxyuDAowUw05htqOrU3NgGC5g+ufYOANZfo4n873P+ASUcxqDSvixlAAAAAElFTkSuQmCC') !important;
+    background-position: 0 0;
+}
+
+.dropdown-dialog #config-container .list-config .ztree li span.button.options {
+    width: 16px;
+    height: 16px;
+    vertical-align: top;
+    background-color: lightgrey;
+    border-radius: 10px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAbBJREFUOBGVU71KA0EQntk7IyoYolUinLURYqXpLfwBy+ATxMLGwhcw+gA2IhbmCSSlIFrYWEWrBLT3IEllJIqKkbt1vzUTlhBBB+Z2/r6Z3Zk5pgHaqjzNc0RFzbRiXEHPHbKmK+1R+bQwfe9CWJTSmU40+flQx7StSSuxuycTx6zoJKNTu6VN7sJnEwDcoPaF1rTsAn6Tmel6hqbWkcRWspUd8FKQoIO1JOXSI5YhwyaEQsBAZ7yZIq671y7mJyg/Oyrx9qw+flK5+ta34Tnk6ZyPhsW9N6MKqi461QQhtnrri27DLqGgMljfdlv/hG1kxyg96QmGmp3IypmkR8o8HLcKUr5NAAew6IGMiiq1dwvAB+C9y45lSQS7G2PUYOi4EPhX8k1gaDgLQGFhHIclXHt/NdmXe2YbU291RA0VNky084cPQrdjMycQkoBBsMGHGCFgfawnR7yDrqK7YNDgGO+MfXCM2tNlhd3GekpWnBhV6yWio5tXy5BhcwkYYNEDwm43uD0nq+zeBH7nzVAJqwwMZDsF7DR2Wyk+thsGzxCCDzHyHyCk/zdK/H9/528p2MpJLG6j6wAAAABJRU5ErkJggg==') !important;
+}
+
+.dropdown-dialog #config-container .list-config .list-setting-container {
+    background-color: white;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 2px 4px 5px;
+    padding-bottom: 5px;
+}
+
+.dropdown-dialog #config-container .list-config .list-setting-container .list-setting-content-container {
+    padding-top: 5px;
+    border-top: 1px solid lightgray;
+}
+
+.dropdown-dialog #config-container .list-config .list-setting-container .list-setting-content-container .list-setting-option-container {
+    display: none;
+}
+
+.dropdown-dialog #config-container .list-config .list-setting-container .list-setting-content-container .list-setting-item-container {
+    display: none;
+}
+
+.dropdown-dialog #config-container .list-config .list-setting-container .list-setting-content-container.option .list-setting-option-container {
+    display: block;
+}
+
+.dropdown-dialog #config-container .list-config .list-setting-container .list-setting-content-container.item .list-setting-item-container {
+    display: block;
+}
+
+.dropdown-dialog #config-container .list-config .list-setting-container .list-setting-content-container input {
+    max-width: 180px;
+}
+
+.dropdown-dialog #config-container .list-config .list-setting-container .list-setting-content-container .block {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.dropdown-dialog #config-container .list-config .list-setting-container .list-setting-content-container .block label {
+    width: 60px;
+    display: inline-block;
+}
+
+.dropdown-dialog #config-container .list-config .list-setting-container .list-setting-footer {
+    padding-top: 5px;
+    border-top: 1px solid lightgray;
+    height: 25px;
+}
+
+.dropdown-dialog #config-container .list-config .list-setting-container .list-setting-footer button {
+    float: right;
+    width: 60px;
+    height: 25px;
+    margin: 0;
+    margin-left: 5px;
+}
+
+.dropdown-dialog #config-container .colorpicker-config fieldset {
+    border: 1px solid #aaaaaa;
+    margin: 0px;
+}
+
+.dropdown-dialog #config-container .colorpicker-config fieldset .color-frame {
+    display: inline-block;
+    width: 58px;
+}
+
+.dropdown-dialog #config-container .colorpicker-config fieldset .color-span {
+    display: block;
+    height: 16px;
+    width: 27px;
+    border: 1px solid lightgray;
+}
+
+.dropdown-dialog #config-container .colorpicker-config fieldset .color-frame button {
+    margin: 0;
+}
+
+.dropdown-dialog #config-container .workflow-config .status-container {
+    height: 200px;
+    overflow-y: auto;
+}
+
+.dropdown-dialog #config-container .workflow-config .status-container .status-item {
+    margin-top: 5px;
+}
+
+.dropdown-dialog #config-container .workflow-config .process-container {
+    height: 225px;
+    overflow-y: auto;
+}
+
+.dropdown-dialog #config-container .workflow-config .process-setting-conatiner {
+    width: 300px;
+}
+
+.dropdown-dialog #config-container .workflow-config .process-setting-conatiner .process-item {
+    margin-top: 10px;
+}
+
+.dropdown-dialog #config-container .workflow-config .seperate {
+    border-bottom: 2px solid lightgray;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dropdown-dialog #config-container .workflow-config .title {
+    height: 25px;
+    line-height: 25px;
+}
+
+.dropdown-dialog #config-container .workflow-config button {
+    margin-bottom: 2px;
+}
+
+.dropdown-dialog #config-container .workflow-config button .ui-button-text {
+    padding: 0px;
+    height: 16px;
+}
+
+.dropdown-dialog #config-container .workflow-config button .move-down-button-icon {
+    background-image: url(../images/icons.png);
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    background-position: 0px -4080px;
+}
+
+.dropdown-dialog #config-container .workflow-config button .move-up-button-icon {
+    background-image: url(../images/icons.png);
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    background-position: 0px -4096px;
+}
+
+.dropdown-dialog #config-container .workflow-config button .from-button-icon {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAbFJREFUSA3llD1Lw1AUhps0QXSoi4sgOmUspR+OgoOLf8EiuHRWJ8XJRRAX7aCLf0FQEKyIQ0GcbCuhOGVqFxdBijhI2sTnlrRcU4KJxKkHkvN17/vec25yEomxENM05+r1+rFlWRNRC1bDbLBtW3Vdd6vT6TzVarV0mD2DNaEIBovRaUVRBMkmhIoUDzSjEiQAFm06oWW3EM0GInsJhYU3bDpNJpMvjuOcefFqPp8/IneBP0V+Er3s5WT1hlMqFApXclC2NTavErju9XpttLCFvIsXuRXUtLADZIb4JQc51zRtO5PJfPrXRW6RH0D4HKTU7XafkUV/PhYCj8SgC49UswfhEHdo+Jn/6OuAHzQajSrPgsCIm6B/LkiW+GBMvrK1fyGQq9dkJy6bn/GBZz2Xy7XiJrAB3gf4EO2IA8dGAKClqmoxm80+yZ2I5Q4AFz8a2D/B+xWQrHDrbUbFBzdf8dhNocndo34dFYyVwFERaiLyuc1D1BKkktxhbzCHXqXYiBn5DqjqC5RdLrKM7Y4g+gJRCZq0s8ipmz6cQDcUga7rDsOsnEqldgzDEBWMkXwDeGioH3JO+/8AAAAASUVORK5CYII=');
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+}
+
+.dropdown-dialog #config-container .workflow-config .from-button {
+    pointer-events: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: none;
+    vertical-align: text-bottom;
+}
+
+.dropdown-dialog #config-container .workflow-config .sample {
+    display: none;
+}
+
+.dropdown-dialog #config-container .workflow-config .selectBox {
+    position: relative;
+}
+
+.dropdown-dialog #config-container .workflow-config .multiselect {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-dialog #config-container .workflow-config .overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.dropdown-dialog #config-container .workflow-config .checkboxes {
+    display: none;
+    border: 1px #dadada solid;
+    position: absolute;
+    top: 20px;
+    z-index: 1;
+    width: 143px;
+    background-color: white;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.dropdown-dialog #config-container .workflow-config .checkboxes label {
+    display: block;
+}
+
+.dropdown-dialog #config-container .config .can-input-select {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-dialog #config-container .config .can-input-select select {
+    height: 22px;
+    width: 129px !important;
+}
+
+.dropdown-dialog #config-container .config .can-input-select input {
+    position: absolute;
+    left: 1px;
+    width: 110px !important;
+    border: none;
+    padding: 0;
+    top: 1px;
+    height: 20px;
+}
+
+
+/* .dropdown-dialog #config-container .workflow-config .checkboxes label:hover {
+    background-color: #1e90ff;
+} */

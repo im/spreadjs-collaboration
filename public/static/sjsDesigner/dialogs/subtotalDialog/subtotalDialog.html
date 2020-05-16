@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subtotal dialog</title>
+</head>
+
+<body>
+<div class='subtotal-dialog'>
+    <div>
+        <label for="groupNameSelection" data-bind="text: res.subtotalDialog.groupNameSelectionLabel">At each change in:</label>
+    </div>
+    <div id="subtotalGroupNameSelection" class="subtotal-group-name-selection">
+        <select id="groupNameSelection"></select>
+    </div>
+    <div>
+        <label for="subtotalFormulaItem" data-bind="text: res.subtotalDialog.subtotalFormulaItemLabel">Use function:</label>
+    </div>
+    <div>
+        <select id="subtotalFormulaItem" class="subtotal-formula-item">
+            <option value="9" selected data-bind="text: res.subtotalDialog.subtotalFormulaSum">Sum</option>
+            <option value="3" data-bind="text: res.subtotalDialog.subtotalFormulaCount">Count</option>
+            <option value="1" data-bind="text: res.subtotalDialog.subtotalFormulaAverage">Average</option>
+            <option value="4" data-bind="text: res.subtotalDialog.subtotalFormulaMax">Max</option>
+            <option value="5" data-bind="text: res.subtotalDialog.subtotalFormulaMin">Min</option>
+            <option value="6" data-bind="text: res.subtotalDialog.subtotalFormulaProduct">Product</option>
+        </select>
+    </div>
+    <div>
+        <span data-bind="text: res.subtotalDialog.addSubtotalColumnItem">Add subtotal to:</span>
+    </div>
+    <div id="subtotalGroupNames" class="subtotal-group-names"></div>
+    <div class="subtotal-replace-current">
+        <input id="replaceCurrent" type="checkbox" checked>
+        <label for="replaceCurrent" data-bind="text: res.subtotalDialog.replaceCurrent">Replace current subtotals</label>
+    </div>
+    <div class="subtotal-break-page-by-groups">
+        <input id="breakPageByGroups" type="checkbox">
+        <label for="breakPageByGroups" data-bind="text: res.subtotalDialog.breakPageByGroups">Page break between groups</label>
+    </div>
+    <div class="subtotal-summary-below-data">
+        <input id="summaryBelowData" type="checkbox" checked>
+        <label for="summaryBelowData" data-bind="text: res.subtotalDialog.summaryBelowData">Summary below data</label>
+    </div>
+</div>
+</body>
+
+</html>

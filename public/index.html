@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>spreadjs</title>
+
+  <meta name="spreadjs culture" content="zh-cn" />
+  <!--SpreadJS Designer Libraries -->
+  <link href="<%= BASE_URL %>static/sjsDesigner/lib/jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/lib/gcui.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/lib/spread/gc.spread.sheets.excel2013white.13.0.3.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/lib/zTreeStyle/css/zTreeStyle.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/common/common.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/widgets/colorpicker/colorpicker.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/widgets/fontpicker/fontpicker.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/widgets/comboframe/comboframe.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/widgets/borderpicker/borderpicker.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/widgets/sliderpanel/sliderpanel.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/dialogs/dialogs.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/dialogs/dialogs2.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/dialogs/chartDialogs.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/formatDialog/formatDialog.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/dialogs/subtotalDialog/subtotalDialog.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/ribbon/ribbon.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/formulaBar/formulaBar.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/spreadWrapper/spreadWrapper.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/statusBar/statusBar.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/contextMenu/contextMenu.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/fileMenu/fileMenu.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/index/index.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/chart/chartColorPicker/chart-colorPicker.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/chart/addChartElement/chartAddChartElement.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/chart/chartTypePicker/chartTypePicker.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/chart/chartLayoutPicker/chartLayoutPicker.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/shape/insertShape/insertShapePopup.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/shape/shapeStylePreview/shapeStylePreview.css" rel="stylesheet" type="text/css" />
+  <link href="<%= BASE_URL %>static/sjsDesigner/common/local.cn.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but spreadjs-vue-disigner doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+
+
+	<!-- Libraries -->
+	<script src="<%= BASE_URL %>static/sjsDesigner/lib/jquery-2.0.2.min.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/lib/jquery-ui/js/jquery-ui-1.10.3.custom.min.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/lib/knockout-2.3.0.min.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/lib/zTreeStyle/js/jquery.ztree.all-3.5.min.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/lib/spread/gc.spread.sheets.all.13.0.3.min.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/lib/spread/plugins/gc.spread.sheets.print.13.0.3.min.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/lib/spread/plugins/gc.spread.sheets.pdf.13.0.3.min.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/lib/spread/plugins/gc.spread.sheets.charts.13.0.3.min.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/lib/spread/plugins/gc.spread.sheets.barcode.13.0.3.min.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/lib/spread/plugins/gc.spread.sheets.shapes.13.0.3.min.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/lib/spread/interop/gc.spread.excelio.13.0.3.min.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/lib/spread/resources/zh/gc.spread.sheets.resources.zh.13.0.3.min.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/lib/FileSaver.min.js"></script>
+
+	<script src="<%= BASE_URL %>static/sjsDesigner/common/app.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/common/resources.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/common/resources.cn.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/widgets/gcui/gcui.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/widgets/colorpicker/colorpicker.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/widgets/fontpicker/fontpicker.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/widgets/comboframe/comboframe.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/widgets/borderpicker/borderpicker.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/widgets/sliderpanel/sliderpanel.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/chart/chart-templates.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/chart/chartColorPicker/chart-colorPicker.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/chart/chartLayoutPicker/chartLayoutPicker.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/chart/chartTypePicker/chartTypePicker.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/common/colorHelper.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/common/util.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/common/asyncLoader.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/common/metadata.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/spreadWrapper/spreadMeta.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/spreadWrapper/spreadWrapper.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/spreadWrapper/spreadActions.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/spreadWrapper/actions.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/spreadWrapper/ceUtility.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/spreadWrapper/spreadUtility.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/statusBar/statusBar.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/chartPreviewer/chartPreviewer.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/chart/addChartElement/chartAddChartElement.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/dialogs/baseDialog.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/dialogs/dialogs.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/dialogs/dialogs2.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/dialogs/chartDialogs.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/formatDialog/formatDialog.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/dialogs/subtotalDialog/subtotalDialog.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/formulaBar/formulaBar.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/chart/chartSliderPanel.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/chart/chartWrapper.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/shape/utils.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/shape/setShapeWidthAndHeight.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/shape/shapeStyleTemplates.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/shape/insertShape/insertShapePopup.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/shape/insertShape/insertShapePreview.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/shape/shapeStylePreview/shapeStylePreview.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/shape/shapeSliderPanel.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/ribbon/ribbon.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/contextMenu/contextMenu.js"></script>
+	<script src="<%= BASE_URL %>static/sjsDesigner/fileMenu/fileMenu.js"></script>
+</body>
+
+</html>

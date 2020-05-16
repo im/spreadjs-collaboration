@@ -1,0 +1,11 @@
+/* This is a function for icons position*/
+.statusBar {
+  height: 22px;
+  background-color: #217346;
+}
+.statusBar .statusbar-zoom-panel:hover {
+  background-color: #0E5C2F;
+}
+.statusBar .statusbar-zoom-panel:active {
+  background-color: #0b4d27;
+}

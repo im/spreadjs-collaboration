@@ -1,0 +1,8 @@
+/**
+* ${ComponentName}
+* @author ${username}
+* @date ${curDate}
+* @since ${version}
+*/
+
+@import '~base/base'

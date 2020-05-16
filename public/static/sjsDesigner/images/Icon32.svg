@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>No Cell Icon32</title>
+    <desc>Created with Sketch.</desc>
+    <g id="No-Cell-Icon32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Error-Red" transform="translate(1.000000, 1.000000)">
+            <path d="M7,4.81818182 L10.8181818,1 L13,3.18181818 L9.18181818,7 L13,10.8181818 L10.8181818,13 L7,9.18181818 L3.18181818,13 L1,10.8181818 L4.81818182,7 L1,3.18181818 L3.18181818,1 L7,4.81818182 Z" id="Combined-Shape-Copy-2" fill="#F5797C"></path>
+            <path d="M7,4.8823711 L3.29414942,1.17652052 L1.17652052,3.29414942 L4.8823711,7 L1.17652052,10.7058506 L3.29414942,12.8234795 L7,9.1176289 L10.7058506,12.8234795 L12.8234795,10.7058506 L9.1176289,7 L12.8234795,3.29414942 L10.7058506,1.17652052 L7,4.8823711 Z M10.7058506,7.57172103e-14 L14,3.29414942 L10.2941494,7 L14,10.7058506 L10.7058506,14 L7,10.2941494 L3.29414942,14 L1.88737914e-14,10.7058506 L3.70585058,7 L1.88737914e-14,3.29414942 L3.29414942,7.57172103e-14 L7,3.70585058 L10.7058506,7.57172103e-14 Z" id="Combined-Shape-Copy-2" fill="#D14538" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

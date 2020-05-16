@@ -1,0 +1,21 @@
+.subtotal-dialog > div {
+    padding: 3px 0;
+}
+
+.subtotal-dialog .subtotal-formula-item, .subtotal-group-name-selection select {
+    display: block;
+    width: 100%;
+}
+
+.subtotal-dialog .subtotal-group-names {
+    width: 100%;
+    height: 100px;
+    overflow: auto;
+    background-color: white;
+    border: 1px #d3d3d3;
+}
+
+.subtotal-dialog .subtotal-group-names label::after {
+    content: "\A";
+    white-space: pre;
+}

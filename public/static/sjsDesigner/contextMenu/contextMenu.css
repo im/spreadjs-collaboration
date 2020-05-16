@@ -1,0 +1,80 @@
+.gc-spread-formatCells {
+    background-image: url(../images/icons.png);
+    background-position: 0px -1248px;
+    background-repeat: no-repeat;
+}
+
+.gc-spread-richtext {
+    background-image: url(../images/icons.png);
+    background-position: 0px -1248px;
+    background-repeat: no-repeat;
+}  /*TODO*/
+.gc-spread-customSort {
+    background-image: url(../images/icons.png);
+    background-repeat: no-repeat;
+}
+
+.gc-spread-formatComment {
+    background-image: url(../images/icons.png);
+    background-position: 0px -4000px;
+    background-repeat: no-repeat;
+}
+
+.gc-spread-protectSheet {
+    background-image: url(../images/icons.png);
+    background-position: 0px -2176px;
+    background-repeat: no-repeat;
+}
+
+.gc-spread-slicerProperty {
+    background-image: url(../images/slicer_height.png);
+    background-repeat: no-repeat;
+}
+
+.gc-spread-slicerSetting {
+    background-image: url(../images/slicer_setting.png);
+    background-repeat: no-repeat;
+}
+
+.gc-spread-resetChartColor {
+    background-image: url(../images/chartIcon.png);
+    background-position: 0px -176px;
+    background-repeat: no-repeat;
+}
+
+.gc-spread-changeChartTypeDialog {
+    background-image: url(../images/chartIcon.png);
+    background-position: 0px -192px;
+    background-repeat: no-repeat;
+}
+
+.gc-spread-selectChartDataDialog {
+    background-image: url(../images/chartIcon.png);
+    background-position: 0px -208px;
+    background-repeat: no-repeat;
+}
+
+.gc-spread-moveChartDialog {
+    background-image: url(../images/chartIcon.png);
+    background-position: 0px -224px;
+    background-repeat: no-repeat;
+}
+
+.gc-spread-formatChart {
+    background-image: url(../images/chartIcon.png);
+    background-position: 0px -240px;
+    background-repeat: no-repeat;
+}
+.gc-spread-groupShapes {
+    background-image: url(../images/group.png);
+    background-repeat: no-repeat;
+}
+.gc-spread-ungroupShapes {
+    background-image: url(../images/ungroup.png);
+    background-repeat: no-repeat;
+}
+.gc-spread-tableToRange{
+    background-image: url(../images/newRibbonV13.png);
+    background-position: -208px -36px;
+    background-repeat: no-repeat;
+}
