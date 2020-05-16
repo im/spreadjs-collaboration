@@ -3,12 +3,11 @@
 export default class Connection {
 
     socket: any = null
-    spread: any = null
+    excel: any = null
 
-
-    constructor(socket: any, spread: any) {
+    constructor(socket: any, excel: any) {
         this.socket = socket
-        this.spread = spread
+        this.excel = excel
 
         this.bindToSocket()
     }
@@ -28,11 +27,8 @@ export default class Connection {
     }
 
     handleMessage(message: any) {
-        const commandManager = this.spread.commandManager()
-        const cmd = JSON.parse(message.data)
-        console.log('cmd: ', cmd)
-        commandManager.execute(cmd)
-        
+        if(!message || !message.data) return
+        this.excel.handleCommand(JSON.parse(message.data))
     }
 
     send(message: any) {

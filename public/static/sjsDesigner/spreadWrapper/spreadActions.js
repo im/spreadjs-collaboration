@@ -7520,6 +7520,7 @@
     };
 
     function insertChart(spread, paramters) {
+        console.log('paramters: ', paramters)
         runCommand(spread, "insertChart", commands_insertChart, {
             selections: paramters.selections,
             sheetName: paramters.sheetName,

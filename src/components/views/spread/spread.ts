@@ -73,15 +73,14 @@ export default class Spread extends Vue {
                 // console.time('attachEvent')
                 designer.ribbon.attachEvent();
                 // console.timeEnd('attachEvent')
+                console.log(111)
 
             }
 
             _this.spread = designer.wrapper.spread
             // console.timeEnd('start')
         });
-        this.$nextTick(() => {
-            new Excel(designer.wrapper.spread)
-        })
+        new Excel(designer)
     }
 
     updateLayout() {

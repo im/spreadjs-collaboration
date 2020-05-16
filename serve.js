@@ -9,11 +9,11 @@ app.listen(80);
 
 /* 实现简单的接发消息 */
 app.ws.use((ctx, next) => {
-    console.log('ctx: ', ctx);
+    // console.log('ctx: ', ctx);
     /* 每打开一个连接就往 上线文数组中 添加一个上下文 */
     ctxs.push(ctx);
     ctx.websocket.on("message", (message) => {
-        console.log(message);
+        // console.log(message);
         for (let i = 0; i < ctxs.length; i++) {
             if (ctx == ctxs[i]) continue;
             ctxs[i].websocket.send(message);
@@ -25,3 +25,4 @@ app.ws.use((ctx, next) => {
         ctxs.splice(index, 1);
     });
 });
+console.log('启动socket服务 localhost:80')
