@@ -93,16 +93,31 @@ export default class Excel {
         }
     }
 
+    getCommand (cmd: string) {
+        return this.commandManager.getCommand(cmd)
+    }
+
+    isDesignerCommand (cmd: string) {
+        return ~cmd.indexOf('designer')
+    }
+
+    getCommandName (cmd: string) {
+        if (this.isDesignerCommand(cmd)) {
+            return cmd.split('.')[1]
+        }
+        return cmd
+    }
+
     // 菜单栏 里面的指令 如果不操作是没有初始化的 这样会导致菜单栏的所有指定无法同步
     // 如果当前指定没有注册 调用spreadActions 里面的注册方法注册指定
     // 因为所有的指定对应的参数不同 使用formatParams 格式化 options
     handleCommand(params: any) {
         const commandManager = this.commandManager
         const { cmd, value } = params
-        console.log(params)
-        if (cmd && !commandManager.getCommand(cmd) && ~cmd.indexOf('designer')) {
+        console.log('是否有当前指令', commandManager.getCommand(cmd) , cmd)
+        if (cmd && !this.getCommand(cmd)) {
             this.registerFlag = true
-            const cmdName = cmd.split('.')[1]
+            const cmdName = this.getCommandName(cmd)
             const registerCommand = this.spreadActions[cmdName]
 
             this.formatParams(params)

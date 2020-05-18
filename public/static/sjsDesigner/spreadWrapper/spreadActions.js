@@ -1543,6 +1543,7 @@
     function runCommand(spread, name, command, options) {
         var commandManager = spread.commandManager();
         var commandName = "designer." + name;
+        console.log('commandName: ', commandName);
         if (!commandManager.getCommand(commandName)) {
             commandManager.register(commandName, command, null, false, false, false, false);
         }
