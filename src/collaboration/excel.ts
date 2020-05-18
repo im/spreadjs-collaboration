@@ -45,12 +45,11 @@ export default class Excel {
 
         const oldUndo = this.undoManager.undo;
         this.undoManager.undo = function () {
-            console.log('arguments: ', arguments);
             return oldUndo.apply(this, arguments);
         }
-
+        const oldRedo = this.undoManager.redo;
         this.undoManager.redo = () => {
-            console.log('redo: ', arguments);
+            return oldRedo.apply(this, arguments);
         }
     }
 
@@ -66,9 +65,13 @@ export default class Excel {
             category,
             chartType,
             dataFormula,
+            shapeInfo,
+            isConnectorType,
+            position,
             dataOrientation } = params
         
         params.sheet = sheet
+        
 
         if (cmd === 'designer.insertPicture') {
             params.options = fileName
@@ -78,6 +81,12 @@ export default class Excel {
                 chartType,
                 dataFormula,
                 dataOrientation
+            }
+        } else if (cmd === 'designer.insertShape') {
+            params.options = {
+                shapeInfo,
+                isConnectorType,
+                position
             }
         } else {
             params.options = value
@@ -90,7 +99,7 @@ export default class Excel {
     handleCommand(params: any) {
         const commandManager = this.commandManager
         const { cmd, value } = params
-        console.log('handleCommand: ', cmd)
+        console.log(params)
         if (cmd && !commandManager.getCommand(cmd) && ~cmd.indexOf('designer')) {
             this.registerFlag = true
             const cmdName = cmd.split('.')[1]
@@ -100,7 +109,9 @@ export default class Excel {
             
             registerCommand(this.spread, params)
         } else {
-            commandManager.execute(params)
+            if (cmd) {
+                commandManager.execute(params)
+            }
         }
     }
 
