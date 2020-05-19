@@ -102,7 +102,7 @@ export default class Excel {
         if (this.isDesignerCommand(cmd)) {
             return cmd.split('.')[1]
         }
-        return cmd;
+        return cmd
     }
 
     // 菜单栏 里面的指令 如果不操作是没有初始化的 这样会导致菜单栏的所有指定无法同步

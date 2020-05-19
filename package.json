@@ -12,6 +12,7 @@
     },
     "dependencies": {
         "axios": "^0.19.2",
+        "core-js": "^3.6.5",
         "element-ui": "^2.13.1",
         "koa-websocket": "^6.0.0",
         "koa2": "^2.0.0-alpha.7",
