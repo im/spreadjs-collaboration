@@ -11,11 +11,6 @@ const routes: Array<RouteConfig> = [
         redirect: '/spread'
     },
     {
-        path: '*',
-        name: 'defaultView',
-        redirect: '/spread'
-    },
-    {
         path: '/spread',
         name: 'spread',
         component: Spread
