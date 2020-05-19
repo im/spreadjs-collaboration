@@ -1,4 +1,3 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const path = require("path");
 const resolve = (dir) => {
     return path.join(__dirname, dir);
@@ -20,9 +19,5 @@ module.exports = {
             .set("components", resolve("src/components"))
             .set("collaboration", resolve("src/collaboration"))
             .set("public", resolve("public"));
-    },
-    configureWebpack: {
-        plugins: [
-        ]
     }
 }
