@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "vue-cli-service serve && node serve.js",
+        "dev": "concurrently \"vue-cli-service serve\"  \"node serve.js\"",
         "serve": "node serve.js",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
@@ -37,6 +37,7 @@
         "@vue/cli-service": "^4.3.0",
         "@vue/eslint-config-typescript": "^5.0.2",
         "colors": "^1.4.0",
+        "concurrently": "^5.2.0",
         "copy-webpack-plugin": "^5.1.1",
         "eslint": "^6.7.2",
         "eslint-plugin-vue": "^6.2.2",
