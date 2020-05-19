@@ -1,7 +1,4 @@
-
-
 export default class Connection {
-
     socket: any = null
     excel: any = null
 
@@ -18,21 +15,16 @@ export default class Connection {
         this.socket.onclose = this.close.bind(this)
     }
 
-    open() {
+    open() {}
 
-    }
-
-    close() {
-
-    }
+    close() {}
 
     handleMessage(message: any) {
-        if(!message || !message.data) return
+        if (!message || !message.data) return
         this.excel.handleCommand(JSON.parse(message.data))
     }
 
     send(message: any) {
         this.socket.send(JSON.stringify(message))
     }
-
 }

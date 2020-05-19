@@ -3,4 +3,5 @@
     "eol": "lf",
     "semi": false,
     "singleQuote": true,
- }
+    "bracketSpacing": true
+}
