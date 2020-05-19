@@ -1,5 +1,5 @@
 
-const collaUrl = 'ws://localhost:80'
+const collaUrl = 'ws://localhost:8888'
 
 import ReconnectingWebsocket from 'reconnecting-websocket'
 import Connection from './connection'
