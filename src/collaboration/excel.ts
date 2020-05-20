@@ -129,7 +129,7 @@ export default class Excel {
             registerCommand(this.spread, params)
         } else {
             if (cmd) {
-                // commandManager.execute(params)
+                commandManager.execute(params)
             }
         }
     }
