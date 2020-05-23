@@ -14,6 +14,7 @@ export default class Excel {
     uuid = uuidv4()
     registerFlag = false
     constructor(designer: any) {
+        const _this = this
         this.designer = designer
         this.spread = designer.wrapper.spread
         this.spreadActions = this.designer.spreadActions
@@ -23,6 +24,22 @@ export default class Excel {
         this.initConnection()
 
         this.initCommand()
+
+        this.initEvents()  // 直接在spread上绑定事件
+        this.lockSheet()   // 只能一个sheet一个sheet去锁定
+        this.spread.bind(GC.Spread.Sheets.Events.ActiveSheetChanging, function (sender, args) {
+            _this.lockSheet()
+        })
+    }
+
+    lockSheet() {
+        // TODO 加个判断，已经初始化过的不再初始化
+        // TODO 这种锁定方式有问题，会导致很多功能不能用
+        const activeSheet = this.spread.getActiveSheet()
+        const sheetStyle = activeSheet.getDefaultStyle()
+        sheetStyle.locked = false
+        activeSheet.setDefaultStyle(sheetStyle)
+        activeSheet.options.isProtected = true
     }
 
     initCommand() {
@@ -116,9 +133,46 @@ export default class Excel {
     // 如果当前指定没有注册 调用spreadActions 里面的注册方法注册指定
     // 因为所有的指定对应的参数不同 使用formatOptions 格式化 options
     handleCommand(params: any) {
+        const spread = this.spread
         const commandManager = this.commandManager
         const { cmd, value } = params
         // console.log('是否有当前指令', cmd, params)
+        console.log('收到指令：', cmd)
+
+        // 锁定/解锁单元格
+        if (cmd === 'lockCell' || cmd === 'unlockCell') {
+            const { sheetName, row, col } = params
+            const sheet = spread.getSheetFromName(sheetName)
+            sheet.getCell(row, col).locked(cmd === 'lockCell')
+            return
+        }
+
+        // 锁定/解锁Sheet Tab
+        if (cmd === 'lockSheetTab' || cmd === 'unlockSheetTab') {
+            spread.options.tabEditable = cmd !== 'lockSheetTab'
+            return
+        }
+
+        // 添加sheet
+
+        // 移动sheet
+        if (cmd === 'moveSheet') {
+            const { sheetName, oldIndex, newIndex } = params
+            const sheet = spread.getSheetFromName(sheetName)
+            const isActive = spread.getActiveSheet() === sheet
+
+            if (oldIndex > newIndex) {
+                var sheets = spread.sheets.splice(oldIndex, 1);
+                spread.sheets.splice(newIndex, 0 , sheets[0])
+            } else {
+                spread.sheets[newIndex] = spread.sheets.splice(oldIndex, 1, spread.sheets[newIndex])[0]
+            }
+            if (isActive) spread.setActiveSheet(sheetName)  // 如果被移动的是当前sheet，需要重新setActiveSheet
+            spread.refresh()
+            return
+        }
+
+
         if (cmd && !this.getCommand(cmd)) {
             this.registerFlag = true
             const cmdName = this.getCommandName(cmd)
@@ -126,10 +180,21 @@ export default class Excel {
 
             this.formatOptions(params)
 
-            registerCommand(this.spread, params)
+            registerCommand(spread, params)
         } else {
             if (cmd) {
-                commandManager.execute(params)
+                if (cmd === 'editCell') {  // 单元格被锁定后，无法在其上执行 cmd，改用 cell.value()
+                    const { sheetName, row, col } = params
+                    const sheet = spread.getSheetFromName(sheetName)
+                    const cell = sheet.getCell(row, col)
+                    if (cell.locked()) {
+                        cell.value(params.newValue)
+                    } else {
+                        commandManager.execute(params)
+                    }
+                } else {
+                    commandManager.execute(params)
+                }
             }
         }
     }
@@ -140,5 +205,61 @@ export default class Excel {
             connectionTimeout: 5000
         })
         this.connection = new Connection(socket, this)
+    }
+
+    initEvents() {
+        const _this = this
+        const spread = this.spread
+
+        spread.bind(GC.Spread.Sheets.Events.EditStarting, function (sender, args) {
+            console.log(`进入单元格：（${args.col}，${args.row}）`)
+            // 锁定单元格
+            const cmd = {
+                cmd: 'lockCell',
+                row: args.row,
+                col: args.col,
+                sheetName: args.sheetName,
+                uuid: _this.uuid
+            }
+            _this.connection.send(cmd)
+        })
+
+        spread.bind(GC.Spread.Sheets.Events.EditEnded, function (sender, args) {
+            console.log(`离开单元格：（${args.col}，${args.row}）`)
+            // 解锁单元格
+            const cmd = {
+                cmd: 'unlockCell',
+                row: args.row,
+                col: args.col,
+                sheetName: args.sheetName,
+                uuid: _this.uuid
+            }
+            _this.connection.send(cmd)
+        })
+
+        spread.bind(GC.Spread.Sheets.Events.SheetTabDoubleClick, function (e, info) {    
+            if (!spread.options.tabEditable) return  // 如果当前已经是锁定状态，不需要发出cmd
+            console.log('编辑sheetName：', info.sheetName)
+            // 锁定Sheet Tab
+            const cmd = {
+                cmd: 'lockSheetTab',
+                sheetName: info.sheetName,
+                uuid: _this.uuid
+            }
+            _this.connection.send(cmd)
+        })
+
+        spread.bind(GC.Spread.Sheets.Events.SheetMoved, function (e, info) {    
+            console.log('移动sheet：', info.sheetName, info)
+            // 移动sheet
+            const cmd = {
+                cmd: 'moveSheet',
+                sheetName: info.sheetName,
+                oldIndex: info.oldIndex,
+                newIndex: info.newIndex,
+                uuid: _this.uuid
+            }
+            _this.connection.send(cmd)
+        })
     }
 }
