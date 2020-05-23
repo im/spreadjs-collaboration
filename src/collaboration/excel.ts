@@ -13,6 +13,8 @@ export default class Excel {
     undoManager: any = null
     uuid = uuidv4()
     registerFlag = false
+    MENUITEM_NAME_PREFIX = 'designer.'
+
     constructor(designer: any) {
         const _this = this
         this.designer = designer
@@ -119,7 +121,7 @@ export default class Excel {
     }
 
     isDesignerCommand(cmd: string) {
-        return ~cmd.indexOf('designer')
+        return ~cmd.indexOf(this.MENUITEM_NAME_PREFIX)
     }
 
     getCommandName(cmd: string) {
@@ -135,7 +137,8 @@ export default class Excel {
     handleCommand(params: any) {
         const spread = this.spread
         const commandManager = this.commandManager
-        const { cmd, value } = params
+        const value = params.value
+        let cmd = params.cmd
         // console.log('是否有当前指令', cmd, params)
         console.log('收到指令：', cmd)
 
@@ -162,7 +165,7 @@ export default class Excel {
             const isActive = spread.getActiveSheet() === sheet
 
             if (oldIndex > newIndex) {
-                var sheets = spread.sheets.splice(oldIndex, 1);
+                const sheets = spread.sheets.splice(oldIndex, 1)
                 spread.sheets.splice(newIndex, 0 , sheets[0])
             } else {
                 spread.sheets[newIndex] = spread.sheets.splice(oldIndex, 1, spread.sheets[newIndex])[0]
@@ -172,6 +175,11 @@ export default class Excel {
             return
         }
 
+        // 右键菜单
+        if (cmd && ~cmd.indexOf('gc.spread.contextMenu')) {
+            cmd = this.handleContextMenuCommand(params)
+            // return
+        }
 
         if (cmd && !this.getCommand(cmd)) {
             this.registerFlag = true
@@ -180,6 +188,7 @@ export default class Excel {
 
             this.formatOptions(params)
 
+            console.log('registerCommand: ', cmdName)
             registerCommand(spread, params)
         } else {
             if (cmd) {
@@ -250,7 +259,7 @@ export default class Excel {
         })
 
         spread.bind(GC.Spread.Sheets.Events.SheetMoved, function (e, info) {    
-            console.log('移动sheet：', info.sheetName, info)
+            console.log('移动sheet：', info.sheetName)
             // 移动sheet
             const cmd = {
                 cmd: 'moveSheet',
@@ -261,5 +270,18 @@ export default class Excel {
             }
             _this.connection.send(cmd)
         })
+    }
+
+    handleContextMenuCommand(params: any) {
+        const cmd = params.cmd
+        const menuData = this.spread.contextMenu.menuData
+        const item = menuData.filter(v => v.command === cmd)[0]
+        return ~item.name.indexOf(this.MENUITEM_NAME_PREFIX)
+            ? item.name
+            : cmd
+
+        // TODO createMenuItemElement貌似行不通
+        // this.spread.contextMenu.menuView.createMenuItemElement(item)
+        // this.commandManager.execute(params)
     }
 }

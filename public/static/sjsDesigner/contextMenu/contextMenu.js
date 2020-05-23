@@ -1072,6 +1072,7 @@
                 menuItemView = GC.Spread.Sheets.ContextMenu.MenuView.prototype.createMenuItemElement.call(self, menuItemData);
                 return menuItemView;
             } else {
+                console.log('createMenuItemElement: ', menuItemData.name)
                 menuItemView = GC.Spread.Sheets.ContextMenu.MenuView.prototype.createMenuItemElement.call(self, menuItemData);
                 return menuItemView;
             }
