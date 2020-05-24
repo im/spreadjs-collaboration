@@ -15,6 +15,7 @@ export default class Excel {
     undoManager: any = null
     uuid = uuidv4()
     registerFlag = false
+    insertPictureFlag = true
 
     cutRange: any = {}
 
@@ -120,12 +121,15 @@ export default class Excel {
             cmd,
             fileName,
             category,
+            chartName,
             chartType,
             dataFormula,
             shapeInfo,
             isConnectorType,
             position,
-            dataOrientation
+            dataOrientation,
+            isSwitchDataOrientation,
+            series
         } = params
 
         params.sheet = sheet
@@ -144,6 +148,19 @@ export default class Excel {
                 shapeInfo,
                 isConnectorType,
                 position
+            }
+        } else if (cmd === 'designer.changeChartType') {
+            params.options = {
+                chartType,
+                isSwitchDataOrientation,
+                series,
+                dataFormula,
+                category,
+                chart: {
+                    name: function() {
+                        return chartName 
+                    }
+                }
             }
         } else {
             params.options = value
@@ -172,8 +189,11 @@ export default class Excel {
         const spread = this.spread
         const commandManager = this.commandManager
         const undoManager = this.undoManager
-        const value = params.value
+        const { value, sheetName } = params
         let cmd = params.cmd
+
+        const sheet = spread.getSheetFromName(sheetName)
+
         // console.log('是否有当前指令', cmd, params)
         console.log('收到指令：', cmd)
         
@@ -188,9 +208,8 @@ export default class Excel {
 
         // 剪切后的粘贴，先清空剪切范围的内容
         if (cmd && cmd === 'clipboardPaste' && params.isCutting) {
-            const { sheetName, selections } = params.cutRange
+            const { selections } = params.cutRange
             const { row, col, rowCount, colCount } = selections[0]
-            const sheet = spread.getSheetFromName(sheetName)
             for (let p in GC.Spread.Sheets.StorageType) {
                 if (Number(p)) continue
                 sheet.clear(row, col, rowCount, colCount, GC.Spread.Sheets.SheetArea.viewport, GC.Spread.Sheets.StorageType[p])
@@ -215,7 +234,6 @@ export default class Excel {
         // 移动sheet
         if (cmd === 'moveSheet') {
             const { sheetName, oldIndex, newIndex } = params
-            const sheet = spread.getSheetFromName(sheetName)
             const isActive = spread.getActiveSheet() === sheet
 
             if (oldIndex > newIndex) {
@@ -245,6 +263,7 @@ export default class Excel {
         }
 
         if (cmd && !this.getCommand(cmd)) {
+            if (cmd === 'designer.insertPicture') this.insertPictureFlag = false
             this.registerFlag = true
             const cmdName = this.getCommandName(cmd)
             const registerCommand = this.spreadActions[cmdName]
@@ -271,6 +290,11 @@ export default class Excel {
                 }
                 commandManager.execute(params)
             }
+        }
+
+        // 插入图片后
+        if (cmd === 'designer.insertPicture') {
+            this.autoMovePicture(params)
         }
     }
 
@@ -355,5 +379,35 @@ export default class Excel {
         const { sheetName, row, col } = params
         const sheet = this.spread.getSheetFromName(sheetName)
         sheet.getCell(row, col).locked(isLock)
+    }
+
+    // 首次手动执行cmd: insertPicture，需要先注册cmd，这时会走spreadActions: insertPicture方法
+    // 该方法会把图片插入到（sheet.getActiveColumnIndex(), sheet.getActiveRowIndex()）的位置，需要手动移动到正确的位置
+    // 后续直接执行注册好的cmd不存在这个问题，会以传入的（col, row）为准
+    autoMovePicture(params: any) {
+        if (this.insertPictureFlag) return
+        this.insertPictureFlag = true
+
+        const sheetName = params.sheetName
+        const sheet = this.spread.getSheetFromName(sheetName)
+        const pictures = sheet.pictures.all()
+        const target = pictures[pictures.length - 1]._ps.name  // 刚插入的图片的名称
+
+        const sourceRow = sheet.getActiveRowIndex()
+        const sourceCol = sheet.getActiveColumnIndex()
+        const { activeRowIndex: targetRow, activeColIndex: targetCol, uuid } = params
+        const { x: targetX, y: targetY } = sheet.getCellRect(targetRow, targetCol)
+        const { x: sourceX, y: sourceY } = sheet.getCellRect(sourceRow, sourceCol)
+
+        const cmd = {
+            cmd: 'moveFloatingObjects',
+            floatingObjects: [target],
+            offsetX: targetX - sourceX,
+            offsetY: targetY - sourceY,
+            sheetName,
+            uuid
+        }
+
+        this.commandManager.execute(cmd)
     }
 }
