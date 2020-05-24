@@ -5,6 +5,8 @@ import Connection from './connection'
 import { v4 as uuidv4 } from 'uuid'
 
 export default class Excel {
+    MENUITEM_NAME_PREFIX = 'designer.'
+
     connection: any = null
     spread: any = null
     designer: any = null
@@ -13,7 +15,8 @@ export default class Excel {
     undoManager: any = null
     uuid = uuidv4()
     registerFlag = false
-    MENUITEM_NAME_PREFIX = 'designer.'
+
+    cutRange: any = {}
 
     constructor(designer: any) {
         const _this = this
@@ -51,7 +54,20 @@ export default class Excel {
 
             for (let i = 0; i < arguments.length; i++) {
                 const cmd = arguments[i].command
-                console.log('执行指令: ', cmd)
+                console.log('执行指令: ', cmd.cmd, cmd)
+
+                // 复制/打开弹框的cmd不需要同步
+                if (~cmd.cmd.indexOf('dialog') || ~cmd.cmd.indexOf('copy')) return
+
+                // 保存剪切范围
+                if (cmd.cmd === 'designer.cut') {
+                    _this.cutRange.sheetName = cmd.sheetName
+                    _this.cutRange.selections = cmd.selections
+                }
+                // 粘贴时将剪切范围也send出去
+                if (cmd.cmd === 'clipboardPaste' && cmd.isCutting) {
+                    cmd.cutRange = _this.cutRange
+                }
 
                 if (cmd.clipboardText) {
                     cmd.fromSheet = null
@@ -140,15 +156,28 @@ export default class Excel {
         const value = params.value
         let cmd = params.cmd
         // console.log('是否有当前指令', cmd, params)
-        console.log('收到指令：', cmd)
+        console.log('收到指令：', cmd, params)
+        
+        // 直接执行同步过来的剪切操作会有问题
+        // 执行designer.cut的时候会去执行cut（cut是基于当前用户定位的单元格做剪切，而不是真正执行了剪切的位置）
+        // 所以改成在粘贴的时候手动清空剪切范围
+        if (cmd === 'cut') return
+        if (cmd === 'designer.cut' && params.uuid && params.uuid !== this.uuid) return
 
-        // 右键/工具栏复制会同时触发copy和designer.copy，只保留designer.copy
-        if (cmd && ~cmd.indexOf('copy')) return
         // 右键/工具栏粘贴会同时触发paste、designer.pasteAll和clipboardPaste，只保留clipboardPaste
         if (cmd && ~cmd.indexOf('paste') && cmd !== 'clipboardPaste') return
 
-        // 打开弹框的cmd不需要同步
-        if (cmd && ~cmd.indexOf('dialog')) return
+        // 剪切后的粘贴，先清空剪切范围的内容
+        if (cmd && cmd === 'clipboardPaste' && params.isCutting) {
+            const { sheetName, selections } = params.cutRange
+            const { row, col, rowCount, colCount } = selections[0]
+            const sheet = spread.getSheetFromName(sheetName)
+            for (let p in GC.Spread.Sheets.StorageType) {
+                if (Number(p)) continue
+                sheet.clear(row, col, rowCount, colCount, GC.Spread.Sheets.SheetArea.viewport, GC.Spread.Sheets.StorageType[p])
+            }
+            params.isCutting = false
+        }
 
         // 锁定/解锁单元格
         if (cmd === 'lockCell' || cmd === 'unlockCell') {
