@@ -44,7 +44,7 @@ export default class Excel {
         const sheetStyle = activeSheet.getDefaultStyle()
         sheetStyle.locked = false
         activeSheet.setDefaultStyle(sheetStyle)
-        activeSheet.options.isProtected = true
+        // activeSheet.options.isProtected = true
     }
 
     initCommand() {
@@ -54,19 +54,22 @@ export default class Excel {
 
             for (let i = 0; i < arguments.length; i++) {
                 const cmd = arguments[i].command
-                console.log('执行指令: ', cmd.cmd, cmd)
+                const cmdName = cmd.cmd
+                console.log('执行指令: ', cmdName, cmd)
 
-                // 复制/打开弹框的cmd不需要同步
-                if (cmd.cmd && (~cmd.cmd.indexOf('dialog') || ~cmd.cmd.indexOf('copy'))) return
+                if (cmdName) {
+                    // 复制/打开弹框的cmd不需要同步
+                    if (~cmdName.toLowerCase().indexOf('dialog') || ~cmdName.toLowerCase().indexOf('copy')) return
 
-                // 保存剪切范围
-                if (cmd.cmd && cmd.cmd === 'designer.cut') {
-                    _this.cutRange.sheetName = cmd.sheetName
-                    _this.cutRange.selections = cmd.selections
-                }
-                // 粘贴时将剪切范围也send出去
-                if (cmd.cmd && cmd.cmd === 'clipboardPaste' && cmd.isCutting) {
-                    cmd.cutRange = _this.cutRange
+                    // 保存剪切范围
+                    if (cmdName === 'designer.cut') {
+                        _this.cutRange.sheetName = cmd.sheetName
+                        _this.cutRange.selections = cmd.selections
+                    }
+                    // 粘贴时将剪切范围也send出去
+                    if (cmdName === 'clipboardPaste' && cmd.isCutting) {
+                        cmd.cutRange = _this.cutRange
+                    }
                 }
 
                 if (cmd.clipboardText) {
@@ -197,9 +200,7 @@ export default class Excel {
 
         // 锁定/解锁单元格
         if (cmd === 'lockCell' || cmd === 'unlockCell') {
-            const { sheetName, row, col } = params
-            const sheet = spread.getSheetFromName(sheetName)
-            sheet.getCell(row, col).locked(cmd === 'lockCell')
+            this.lockCell(params, cmd === 'lockCell')
             return
         }
 
@@ -254,18 +255,21 @@ export default class Excel {
             registerCommand(spread, params)
         } else {
             if (cmd) {
-                if (cmd === 'editCell') {  // 单元格被锁定后，无法在其上执行 cmd，改用 cell.value()
-                    const { sheetName, row, col } = params
-                    const sheet = spread.getSheetFromName(sheetName)
-                    const cell = sheet.getCell(row, col)
-                    if (cell.locked()) {
-                        cell.value(params.newValue)
-                    } else {
-                        commandManager.execute(params)
-                    }
-                } else {
-                    commandManager.execute(params)
+                if (cmd === 'editCell') {
+                    // 单元格被锁定后，无法在其上执行 cmd，改用 cell.value()
+                    // const { sheetName, row, col } = params
+                    // const sheet = spread.getSheetFromName(sheetName)
+                    // const cell = sheet.getCell(row, col)
+                    // if (cell.locked()) {
+                    //     cell.value(params.newValue)
+                    // } else {
+                    //     commandManager.execute(params)
+                    // }
+
+                    // 先解锁，才能执行cmd
+                    this.lockCell(params, false)
                 }
+                commandManager.execute(params)
             }
         }
     }
@@ -345,5 +349,11 @@ export default class Excel {
         // TODO createMenuItemElement貌似行不通
         // this.spread.contextMenu.menuView.createMenuItemElement(item)
         // this.commandManager.execute(params)
+    }
+
+    lockCell(params: any, isLock: Boolean) {
+        const { sheetName, row, col } = params
+        const sheet = this.spread.getSheetFromName(sheetName)
+        sheet.getCell(row, col).locked(isLock)
     }
 }
