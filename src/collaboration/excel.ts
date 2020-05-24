@@ -51,7 +51,7 @@ export default class Excel {
 
             for (let i = 0; i < arguments.length; i++) {
                 const cmd = arguments[i].command
-                console.log('cmd: ', cmd)
+                console.log('执行指令: ', cmd)
 
                 if (cmd.clipboardText) {
                     cmd.fromSheet = null
@@ -141,6 +141,14 @@ export default class Excel {
         let cmd = params.cmd
         // console.log('是否有当前指令', cmd, params)
         console.log('收到指令：', cmd)
+
+        // 右键/工具栏复制会同时触发copy和designer.copy，只保留designer.copy
+        if (cmd && ~cmd.indexOf('copy')) return
+        // 右键/工具栏粘贴会同时触发paste、designer.pasteAll和clipboardPaste，只保留clipboardPaste
+        if (cmd && ~cmd.indexOf('paste') && cmd !== 'clipboardPaste') return
+
+        // 打开弹框的cmd不需要同步
+        if (cmd && ~cmd.indexOf('dialog')) return
 
         // 锁定/解锁单元格
         if (cmd === 'lockCell' || cmd === 'unlockCell') {
