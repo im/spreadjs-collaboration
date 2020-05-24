@@ -57,15 +57,15 @@ export default class Excel {
                 console.log('执行指令: ', cmd.cmd, cmd)
 
                 // 复制/打开弹框的cmd不需要同步
-                if (~cmd.cmd.indexOf('dialog') || ~cmd.cmd.indexOf('copy')) return
+                if (cmd.cmd && (~cmd.cmd.indexOf('dialog') || ~cmd.cmd.indexOf('copy'))) return
 
                 // 保存剪切范围
-                if (cmd.cmd === 'designer.cut') {
+                if (cmd.cmd && cmd.cmd === 'designer.cut') {
                     _this.cutRange.sheetName = cmd.sheetName
                     _this.cutRange.selections = cmd.selections
                 }
                 // 粘贴时将剪切范围也send出去
-                if (cmd.cmd === 'clipboardPaste' && cmd.isCutting) {
+                if (cmd.cmd && cmd.cmd === 'clipboardPaste' && cmd.isCutting) {
                     cmd.cutRange = _this.cutRange
                 }
 
@@ -81,8 +81,23 @@ export default class Excel {
         })
 
         const oldUndo = this.undoManager.undo
-        this.undoManager.undo = function() {
-            console.log('undo: ')
+        this.undoManager.undo = function(isManual: Boolean) {
+            // if (!this.undoManager.canUndo()) return
+            console.log('触发undo，是否手动触发：', isManual)
+
+            // 代码手动触发的undo不需要同步
+            if (!isManual) {
+                // 过滤掉undoList中非当前用户的操作（通过代码execute的command会被插入undoList中，但显然不能撤销别人的操作）
+                this.Ac = this.Ac.filter(v => v.uuid === _this.uuid)
+                const undoList = this.Ac || []
+
+                const cmd = {
+                    cmd: 'undo',
+                    undoData: undoList[undoList.length - 1],
+                    uuid: _this.uuid
+                }
+                _this.connection.send(cmd)
+            }
             return oldUndo.apply(this, arguments)
         }
         const oldRedo = this.undoManager.redo
@@ -153,10 +168,11 @@ export default class Excel {
     handleCommand(params: any) {
         const spread = this.spread
         const commandManager = this.commandManager
+        const undoManager = this.undoManager
         const value = params.value
         let cmd = params.cmd
         // console.log('是否有当前指令', cmd, params)
-        console.log('收到指令：', cmd, params)
+        console.log('收到指令：', cmd)
         
         // 直接执行同步过来的剪切操作会有问题
         // 执行designer.cut的时候会去执行cut（cut是基于当前用户定位的单元格做剪切，而不是真正执行了剪切的位置）
@@ -216,6 +232,15 @@ export default class Excel {
         if (cmd && ~cmd.indexOf('gc.spread.contextMenu')) {
             cmd = this.handleContextMenuCommand(params)
             // return
+        }
+
+        // 将收到的需要undo的cmd推入当前manager的undoList
+        if (cmd === 'undo') {
+            const undoList = undoManager.Ac
+            undoList.push(params.undoData)
+            console.log('收到撤销指令后更新undoList: ', undoList)
+            undoManager.undo.call(undoManager, true)
+            return
         }
 
         if (cmd && !this.getCommand(cmd)) {
