@@ -85,7 +85,7 @@ export default class Excel {
         })
 
         const oldUndo = this.undoManager.undo
-        this.undoManager.undo = function(isManual: Boolean) {
+        this.undoManager.undo = function(isManual: boolean) {
             // if (!this.undoManager.canUndo()) return
             console.log('触发undo，是否手动触发：', isManual)
 
@@ -195,7 +195,7 @@ export default class Excel {
         const sheet = spread.getSheetFromName(sheetName)
 
         // console.log('是否有当前指令', cmd, params)
-        console.log('收到指令：', cmd)
+        console.log('收到指令：', cmd, params)
         
         // 直接执行同步过来的剪切操作会有问题
         // 执行designer.cut的时候会去执行cut（cut是基于当前用户定位的单元格做剪切，而不是真正执行了剪切的位置）
@@ -210,7 +210,7 @@ export default class Excel {
         if (cmd && cmd === 'clipboardPaste' && params.isCutting) {
             const { selections } = params.cutRange
             const { row, col, rowCount, colCount } = selections[0]
-            for (let p in GC.Spread.Sheets.StorageType) {
+            for (const p in GC.Spread.Sheets.StorageType) {
                 if (Number(p)) continue
                 sheet.clear(row, col, rowCount, colCount, GC.Spread.Sheets.SheetArea.viewport, GC.Spread.Sheets.StorageType[p])
             }
@@ -251,6 +251,17 @@ export default class Excel {
         if (cmd && ~cmd.indexOf('gc.spread.contextMenu')) {
             cmd = this.handleContextMenuCommand(params)
             // return
+        }
+
+        // delete删除图片无法同步，手动移除
+        if (cmd === 'deleteFloatingObjects') {
+            const name = params.floatingObjects[0]
+            if (~name.toLowerCase().indexOf('picture')) {
+                sheet.pictures.remove(name)
+                sheet.floatingObjects.remove(name)
+                console.log('手动移除：', name)
+                return
+            }
         }
 
         // 将收到的需要undo的cmd推入当前manager的undoList
@@ -375,10 +386,14 @@ export default class Excel {
         // this.commandManager.execute(params)
     }
 
-    lockCell(params: any, isLock: Boolean) {
+    lockCell(params: any, isLock: boolean) {
         const { sheetName, row, col } = params
         const sheet = this.spread.getSheetFromName(sheetName)
         sheet.getCell(row, col).locked(isLock)
+        // var style = new Gc.Spread.Sheets.Style()
+        // style.locked = true
+        // style.backColor = 'red'
+        // sheet.setStyle(row, col, style)
     }
 
     // 首次手动执行cmd: insertPicture，需要先注册cmd，这时会走spreadActions: insertPicture方法
