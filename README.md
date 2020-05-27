@@ -1,6 +1,41 @@
 # spreadjs collaboration
 
 
+### 数据结构
+
+{
+    baseVer: 0,
+    uuid: '7fb54558-18f6-455d-a7ea-f94398acf211',
+    cmd: 'editCell',
+    sheetName: 'sheet1',  // 同一个sheet的操作才需要合并
+    pos: {                // 编辑/插入图片等的位置
+        col: 1,
+        colCount: 1,      // 比如插入图表，需要将 dataFormula: "$G$7:$H$9" 转换成相应 col、colCount、row、rowCount
+        row: 2,
+        rowCount: 1
+    },
+    offset: {             // 移动操作的偏移量
+        x: 20,
+        y: 20
+    },
+    op: {
+        cmd: 'editCell',
+        sheetName: 'sheet1',
+        // ...
+    }
+}
+
+### 需要做OT的场景
+
+- 存在可能影响其他 cmd 的操作位置的 cmd，比如
+
+1. 插入单元格、行、列；
+2. 删除单元格、行、列；
+3. 删除整个sheet（这时忽略同一个sheet上的其他操作？）;
+
+- 同时存在多个 moveSheet 的操作
+
+
 
 ### TODO
 
@@ -27,11 +62,11 @@ https://gcdn.grapecity.com.cn/showtopic-58249-1-5.html
 1. 不管是通过 getCell(row, col).locked(true) 还是 style.locked = true 来锁定单元格，前提都需要先保护工作表，但工作表设置 isProtected = true 后，有些功能不能用，比如右键菜单的许多功能，如何保持这些功能可用？
 
 * [x] 编辑单元格
-* [ ] 插入行列
+* [x] 插入行列
 * [x] 复制粘贴
 * [x] 剪切
 * [ ] 格式类、清除格式
-* [ ] 删除
+* [x] 删除
 * [ ] 公式
 * [ ] 图表
 * [x] 插入删除图片、图片挪动、图片大小
@@ -75,3 +110,38 @@ https://gcdn.grapecity.com.cn/showtopic-74198-1-1.html
 
 
 
+
+
+##### 不同cmd包含的位置信息
+
+1. 插入图片
+    activeColIndex: 1
+    activeRowIndex: 4
+    colWidth: 62
+    rowHeight: 20
+2. 插入图表
+    dataFormula: "$G$7:$H$9"
+3. 移动图表/图片
+    offsetX: 80
+    offsetY: 20
+4. 插入形状
+    position: {
+        x: 80,
+        y: 20
+    }
+5. 移动形状
+    changes: [{
+        offsetHeight: 0
+        offsetWidth: 0
+        offsetX: 196
+        offsetY: 0
+    }]
+6. 插入表格
+    exRange: {
+        ranges: [{
+            col: 2
+            colCount: 1
+            row: 4
+            rowCount: 1
+        }]
+    }
