@@ -129,7 +129,8 @@ export default class Excel {
             position,
             dataOrientation,
             isSwitchDataOrientation,
-            series
+            series,
+            formulaName
         } = params
 
         params.sheet = sheet
@@ -162,6 +163,8 @@ export default class Excel {
                     }
                 }
             }
+        } else if (cmd === 'designer.setAutoFormula') {
+            params.options = formulaName
         } else {
             params.options = value
         }
