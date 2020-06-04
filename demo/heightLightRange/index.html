@@ -1,0 +1,44 @@
+<!doctype html>
+<html style="height:100%;font-size:14px;">
+
+<head>
+    <meta name="spreadjs culture" content="zh-cn" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="https://demo.grapecity.com.cn/spreadjs/SpreadJSTutorial/zh/purejs/node_modules/@grapecity/spread-sheets/styles/gc.spread.sheets.excel2013white.css">
+    <script src="https://demo.grapecity.com.cn/spreadjs/SpreadJSTutorial/zh/purejs/node_modules/@grapecity/spread-sheets/dist/gc.spread.sheets.all.min.js" type="text/javascript"></script>
+    <script src="https://demo.grapecity.com.cn/spreadjs/SpreadJSTutorial/zh/purejs/node_modules/@grapecity/spread-sheets-resources-zh/dist/gc.spread.sheets.resources.zh.min.js" type="text/javascript"></script>
+    <script src="https://demo.grapecity.com.cn/spreadjs/SpreadJSTutorial/spread/source/js/license.js" type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+    <div class="sample-tutorial">
+        <div style="width:80%;height:10%;">
+        </div>
+        <div id="ss" style="width:80%;height:80%;margin-left: 200px;position: relative;">
+
+        </div>
+    </div>
+    <script src="highlightLayout.js" type="text/javascript"></script>
+    <script>
+        setTimeout(function() {
+            var spread = GC.Spread.Sheets.findControl(document.getElementById('ss'));
+            spread.options.scrollByPixel = true;
+            var highlightLayout = new HighlightLayout();
+            highlightLayout.bind(spread)
+            highlightLayout.addRanges("Sheet1", "user1", 
+                [new GC.Spread.Sheets.Range(40, 4, 4, 4), new GC.Spread.Sheets.Range(3, 4, 8, 4)], {borderColor: "lightGreen"})
+
+                highlightLayout.addRanges("Sheet1", "user2", 
+                [new GC.Spread.Sheets.Range(1, 4, 1, 1), new GC.Spread.Sheets.Range(2, 1, 1, 2)], {borderColor: "pink"})
+
+
+        }, 10);
+
+      
+    </script>
+
+</body>
+</html>

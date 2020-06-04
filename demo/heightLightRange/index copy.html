@@ -1,0 +1,182 @@
+<!doctype html>
+<html style="height:100%;font-size:14px;">
+
+<head>
+    <meta name="spreadjs culture" content="zh-cn" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="https://demo.grapecity.com.cn/spreadjs/SpreadJSTutorial/zh/purejs/node_modules/@grapecity/spread-sheets/styles/gc.spread.sheets.excel2013white.css">
+    <script src="https://demo.grapecity.com.cn/spreadjs/SpreadJSTutorial/zh/purejs/node_modules/@grapecity/spread-sheets/dist/gc.spread.sheets.all.min.js" type="text/javascript"></script>
+    <script src="https://demo.grapecity.com.cn/spreadjs/SpreadJSTutorial/zh/purejs/node_modules/@grapecity/spread-sheets-resources-zh/dist/gc.spread.sheets.resources.zh.min.js" type="text/javascript"></script>
+    <script src="https://demo.grapecity.com.cn/spreadjs/SpreadJSTutorial/spread/source/js/license.js" type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+    <div class="sample-tutorial">
+        <div style="width:80%;height:10%;">
+        </div>
+        <div id="ss" style="width:80%;height:80%;margin-left: 200px;position: relative;">
+            <div id="highlightLayout">
+                <div id="highLightRect"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        setTimeout(function() {
+            var spread = GC.Spread.Sheets.findControl(document.getElementById('ss'));
+            spread.options.scrollByPixel = true;
+            var hightlightRange = new GC.Spread.Sheets.Range(40, 4, 4, 4);
+            var sheet = spread.getActiveSheet()
+            sheet.getRange(40, 4, 4, 4).backColor("lightblue")
+            spread.bind(GC.Spread.Sheets.Events.TopRowChanged, function(){
+                updateHighlightRect(sheet, hightlightRange)
+            })
+            spread.bind(GC.Spread.Sheets.Events.LeftColumnChanged, function(){
+                updateHighlightRect(sheet, hightlightRange)
+            })
+            spread.bind(GC.Spread.Sheets.Events.ColumnWidthChanged, function(){
+                setTimeout(function() {
+                        updateHighlightRect(sheet, hightlightRange)
+                }, 0);
+            })
+            spread.bind(GC.Spread.Sheets.Events.RowHeightChanged, function(){
+                setTimeout(function() {
+                        updateHighlightRect(sheet, hightlightRange)
+                }, 0);
+            })
+            updateHighlightRect(sheet, hightlightRange)
+        }, 10);
+
+        
+        function updateHighlightRect(sheet, hightlightRange){
+            var highLightRect = document.getElementById("highLightRect");
+            
+            var tlRect = sheet.getCellRect(hightlightRange.row, hightlightRange.col),
+                trRect = sheet.getCellRect(hightlightRange.row, hightlightRange.col + hightlightRange.colCount - 1),
+                rbRect = sheet.getCellRect(hightlightRange.row + hightlightRange.rowCount - 1, hightlightRange.col + hightlightRange.colCount - 1),
+                lbRect = sheet.getCellRect(hightlightRange.row + hightlightRange.rowCount - 1, hightlightRange.col)
+                cornerRect = sheet.getCellRect(0, 0, -1, -1);
+            var viewportWidth = cornerRect.width + sheet.getViewportWidth(0) + sheet.getViewportWidth(1),
+                viewportHeight = cornerRect.height + sheet.getViewportHeight(0) + sheet.getViewportHeight(1);
+ 
+            var x = tlRect.x || lbRect.x,
+                y = tlRect.y || trRect.y,
+                endX = trRect.x && (trRect.x + trRect.width) || rbRect.x && (rbRect.x + rbRect.width),
+                endY = rbRect.y && (rbRect.y + rbRect.height) || lbRect.y && (lbRect.y + lbRect.height);
+                
+            var left = x && x - cornerRect.width >= 0,
+                top = y && y - cornerRect.height >= 0, 
+                right = endX && endX <= viewportWidth, 
+                bottom = endY && endY <= viewportHeight;
+
+            if(!(left || top || right || bottom)){
+                highLightRect.style.display = "none"
+                return;
+            }
+            x = left ? x : cornerRect.width;
+            y = top ? y : cornerRect.height;
+            endX = right ? endX : viewportWidth;
+            endY = bottom ? endY : viewportHeight;
+            var rectWidth= endX - x,
+                rectHeight = endY - y; 
+            
+            highLightRect.style.left = x - 2 + "px";
+            highLightRect.style.top = y - 2 + "px";
+            highLightRect.style.height = rectHeight - 2 + "px";
+            highLightRect.style.width = rectWidth - 2 + "px";
+
+            const noneBorderStyle = "none", highlightBorderStyle = "3px solid lightseagreen";
+                
+            highLightRect.style["border-left"] = left ? highlightBorderStyle : noneBorderStyle;
+            highLightRect.style["border-top"] = top ? highlightBorderStyle : noneBorderStyle;
+            highLightRect.style["border-right"] = right ? highlightBorderStyle : noneBorderStyle;
+            highLightRect.style["border-bottom"] = bottom ? highlightBorderStyle : noneBorderStyle;
+
+            highLightRect.style.display = "block";
+        }
+
+
+        function updateHighlightRectOld(sheet, hightlightRange){
+            var highLightRect = document.getElementById("highLightRect");
+            var topRow = sheet.getViewportTopRow(1), leftCol = sheet.getViewportLeftColumn(1),
+                bottomRow = sheet.getViewportBottomRow(1), rightCol = sheet.getViewportRightColumn(1);
+            var viewportRange = new GC.Spread.Sheets.Range(topRow, leftCol, bottomRow - topRow + 1, rightCol - leftCol + 1)
+            if(viewportRange.containsRange(hightlightRange)){
+                highLightRect.style.display = "block"
+                updateActualRect(sheet, hightlightRange, hightlightRange, viewportRange)
+            }
+            else{
+                var intersectRange = viewportRange.getIntersect(hightlightRange);
+                if(!intersectRange){
+                    highLightRect.style.display = "none"
+                    return;
+                }
+                updateActualRect(sheet, intersectRange, hightlightRange, viewportRange)
+            }
+        }
+        
+        function updateActualRect(sheet, intersectRange, hightlightRange, viewportRange){
+            const noneBorderStyle = "none", highlightBorderStyle = "3px solid lightseagreen";
+            
+            
+            var startRect = sheet.getCellRect(intersectRange.row, intersectRange.col),
+                endRect = sheet.getCellRect(intersectRange.row + intersectRange.rowCount - 1, intersectRange.col + intersectRange.colCount - 1);
+                cornerRect = sheet.getCellRect(0, 0, -1, -1);
+            var viewportWidth = cornerRect.width + sheet.getViewportWidth(0) + sheet.getViewportWidth(1),
+                viewportHeight = cornerRect.height + sheet.getViewportHeight(0) + sheet.getViewportHeight(1);
+            var left = startRect.x - cornerRect.width >= 0,
+                top = startRect.y - cornerRect.height >= 0, 
+                right = endRect.x + endRect.width <= viewportWidth, 
+                bottom = endRect.y + endRect.height <= viewportHeight;
+            var x = left ? startRect.x : cornerRect.width,
+                y = top ? startRect.y : cornerRect.height,
+                endX = right ? endRect.x + endRect.width: viewportWidth,
+                endY = bottom ? endRect.y + endRect.height : viewportHeight;
+            var  rectWidth= endX - x,
+                rectHeight = endY - y;
+
+            if(hightlightRange !== intersectRange){
+                left = left && hightlightRange.col >= viewportRange.col;
+                top = top && hightlightRange.row >= viewportRange.row;
+                right = right && hightlightRange.col + hightlightRange.colCount <= viewportRange.col + viewportRange.colCount;
+                bottom = bottom && hightlightRange.row + hightlightRange.rowCount <= viewportRange.row + viewportRange.rowCount;
+            }
+
+            highLightRect.style["border-left"] = left ? highlightBorderStyle : noneBorderStyle;
+            highLightRect.style["border-top"] = top ? highlightBorderStyle : noneBorderStyle;
+            highLightRect.style["border-right"] = right ? highlightBorderStyle : noneBorderStyle;
+            highLightRect.style["border-bottom"] = bottom ? highlightBorderStyle : noneBorderStyle;
+            
+            highLightRect.style.left = x - 2 + "px";
+            highLightRect.style.top = y - 2 + "px";
+            highLightRect.style.height = rectHeight - 2 + "px";
+            highLightRect.style.width = rectWidth - 2 + "px";
+
+            highLightRect.style.display = "block";
+        }
+
+
+    </script>
+    <style>
+        #highlightLayout{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        #highLightRect{
+            display: none;
+            position: absolute;
+            height: 218px;
+            width: 542px;
+            top: 18px;
+            left: 38px;
+            border: 3px solid lightseagreen;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,260 @@
+.chart-layout-list {
+    width: 246px;
+    background-color: white;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #c6c6c6;
+    box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 5px;
+    overflow: hidden;
+}
+
+.chart-layout-list-item {
+    padding: 15px;
+    float: left;
+    list-style: none;
+}
+
+.chart-layout-hover {
+    background-color: #e3e3e3;
+}
+
+.chart-layout-selected {
+    opacity: 0.6;
+}
+
+.chart-layout-icon {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-image: url("../../css/images/chartIcon50-50.png");
+    border: 1px solid #999;
+}
+
+.chart-layout-ColumnGroup .layout1 {
+    background-position: 0 -150px;
+}
+
+.chart-layout-ColumnGroup .layout2 {
+    background-position: 0 -200px;
+}
+
+.chart-layout-ColumnGroup .layout3 {
+    background-position: 0 -250px;
+}
+
+.chart-layout-ColumnGroup .layout4 {
+    background-position: 0 -300px;
+}
+
+.chart-layout-ColumnGroup .layout5 {
+    background-position: 0 -400px;
+}
+
+.chart-layout-ColumnGroup .layout6 {
+    background-position: 0 -450px;
+}
+
+.chart-layout-ColumnGroup .layout7 {
+    background-position: 0 -500px;
+}
+
+.chart-layout-ColumnGroup .layout8 {
+    background-position: 0 -550px;
+}
+
+.chart-layout-ColumnGroup .layout9 {
+    background-position: 0 -600px;
+}
+
+.chart-layout-ColumnGroup .layout10 {
+    background-position: 0 -650px;
+}
+
+.chart-layout-LineGroup .layout1 {
+    background-position: 0 -750px;
+}
+
+.chart-layout-LineGroup .layout2 {
+    background-position: 0 -800px;
+}
+
+.chart-layout-LineGroup .layout3 {
+    background-position: 0 -900px;
+}
+
+.chart-layout-LineGroup .layout4 {
+    background-position: 0 -950px;
+}
+
+.chart-layout-LineGroup .layout5 {
+    background-position: 0 -1000px;
+}
+
+.chart-layout-LineGroup .layout6 {
+    background-position: 0 -1100px;
+}
+
+.chart-layout-LineGroup .layout7 {
+    background-position: 0 -1150px;
+}
+
+.chart-layout-LineGroup .layout8 {
+    background-position: 0 -1200px;
+}
+
+.chart-layout-LineGroup .layout9 {
+    background-position: 0 -1300px;
+}
+
+.chart-layout-LineGroup .layout10 {
+    background-position: 0 -1350px;
+}
+
+.chart-layout-PieGroup .layout1 {
+    background-position: 0 -1400px;
+}
+
+.chart-layout-PieGroup .layout2 {
+    background-position: 0 -1450px;
+}
+
+.chart-layout-PieGroup .layout3 {
+    background-position: 0 -1500px;
+}
+
+.chart-layout-PieGroup .layout4 {
+    background-position: 0 -1550px;
+}
+
+.chart-layout-PieGroup .layout5 {
+    background-position: 0 -1600px;
+}
+
+.chart-layout-PieGroup .layout6 {
+    background-position: 0 -1650px;
+}
+
+.chart-layout-PieGroup .layout7 {
+    background-position: 0 -1700px;
+}
+
+.chart-layout-BarGroup .layout1 {
+    background-position: 0 -1750px;
+}
+
+.chart-layout-BarGroup .layout2 {
+    background-position: 0 -1800px;
+}
+
+.chart-layout-BarGroup .layout3 {
+    background-position: 0 -1850px;
+}
+
+.chart-layout-BarGroup .layout4 {
+    background-position: 0 -1900px;
+}
+
+.chart-layout-BarGroup .layout5 {
+    background-position: 0 -2000px;
+}
+
+.chart-layout-BarGroup .layout6 {
+    background-position: 0 -2050px;
+}
+
+.chart-layout-BarGroup .layout7 {
+    background-position: 0 -2100px;
+}
+
+.chart-layout-BarGroup .layout8 {
+    background-position: 0 -2150px;
+}
+
+.chart-layout-BarGroup .layout9 {
+    background-position: 0 -2200px;
+}
+
+.chart-layout-AreaGroup .layout1 {
+    background-position: 0 -2250px;
+}
+
+.chart-layout-AreaGroup .layout2 {
+    background-position: 0 -2300px;
+}
+
+.chart-layout-AreaGroup .layout3 {
+    background-position: 0 -2350px;
+}
+
+.chart-layout-AreaGroup .layout4 {
+    background-position: 0 -2400px;
+}
+
+.chart-layout-AreaGroup .layout5 {
+    background-position: 0 -2500px;
+}
+
+.chart-layout-AreaGroup .layout6 {
+    background-position: 0 -2550px;
+}
+
+.chart-layout-AreaGroup .layout7 {
+    background-position: 0 -2600px;
+}
+
+.chart-layout-ScatterGroup .layout1 {
+    background-position: 0 -2650px;
+}
+
+.chart-layout-ScatterGroup .layout2 {
+    background-position: 0 -2700px;
+}
+
+.chart-layout-ScatterGroup .layout3 {
+    background-position: 0 -2750px;
+}
+
+.chart-layout-ScatterGroup .layout4 {
+    background-position: 0 -2800px;
+}
+
+.chart-layout-ScatterGroup .layout5 {
+    background-position: 0 -2850px;
+}
+
+.chart-layout-ScatterGroup .layout6 {
+    background-position: 0 -2900px;
+}
+
+.chart-layout-ScatterGroup .layout7 {
+    background-position: 0 -2950px;
+}
+
+.chart-layout-ScatterGroup .layout8 {
+    background-position: 0 -3000px;
+}
+
+.chart-layout-ScatterGroup .layout9 {
+    background-position: 0 -3150px;
+}
+
+.chart-layout-StockGroup .layout1 {
+    background-position: 0 -3200px;
+}
+
+.chart-layout-StockGroup .layout2 {
+    background-position: 0 -3250px;
+}
+
+.chart-layout-StockGroup .layout3 {
+    background-position: 0 -3300px;
+}
+
+.chart-layout-StockGroup .layout4 {
+    background-position: 0 -3400px;
+}
+
+.chart-layout-StockGroup .layout5 {
+    background-position: 0 -3450px;
+}

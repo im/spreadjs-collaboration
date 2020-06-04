@@ -1,0 +1,259 @@
+.table-format,
+.table-format-2013 {
+  overflow: hidden;
+}
+.table-format .table-format-item,
+.table-format-2013 .table-format-item {
+  float: left;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 2px 1px;
+  margin-bottom: 5px;
+  border: 1px solid transparent;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.table-format .table-format-item:hover,
+.table-format-2013 .table-format-item:hover {
+  background: #d0f0e0;
+}
+.table-format .table-format-item-selected,
+.table-format-2013 .table-format-item-selected {
+  background: #9fd5b7;  
+}
+.table-format .table-format-icon {
+  width: 61px;
+  height: 46px;
+  display: block;
+  background-repeat: no-repeat;
+  background-image: url(images/formattable.png);
+}
+.table-format .table-format-light1 {
+  background-position: 0 -506px;
+}
+.table-format .table-format-light2 {
+  background-position: 0 -552px;
+}
+.table-format .table-format-light3 {
+  background-position: 0 -598px;
+}
+.table-format .table-format-light7 {
+  background-position: 0 -782px;
+}
+.table-format .table-format-medium1 {
+  background-position: 0 -1472px;
+}
+.table-format .table-format-medium2 {
+  background-position: 0 -1518px;
+}
+.table-format .table-format-medium3 {
+  background-position: 0 -1564px;
+}
+.table-format .table-format-medium7 {
+  background-position: 0 -1748px;
+}
+.table-format .table-format-dark1 {
+  background-position: 0 0px;
+}
+.table-format .table-format-dark2 {
+  background-position: 0 -46px;
+}
+.table-format .table-format-dark3 {
+  background-position: 0 -92px;
+}
+.table-format .table-format-dark7 {
+  background-position: 0 -276px;
+}
+
+.table-format-2013 .table-format-icon {
+  width: 63px;
+  height: 48px;
+  display: block;
+  background-repeat: no-repeat;
+  background-image: url(images/formattable2013.png);
+}
+.table-format-2013 .table-format-none {
+  background-position: 0 0;
+}
+.table-format-2013 .table-format-light1 {
+  background-position: 0 -48px;
+}
+.table-format-2013 .table-format-light2 {
+  background-position: 0 -96px;
+}
+.table-format-2013 .table-format-light3 {
+  background-position: 0 -144px;
+}
+.table-format-2013 .table-format-light4 {
+  background-position: 0 -192px;
+}
+.table-format-2013 .table-format-light5 {
+  background-position: 0 -240px;
+}
+.table-format-2013 .table-format-light6 {
+  background-position: 0 -288px;
+}
+.table-format-2013 .table-format-light7 {
+  background-position: 0 -336px;
+}
+.table-format-2013 .table-format-light8 {
+  background-position: 0 -384px;
+}
+.table-format-2013 .table-format-light9 {
+  background-position: 0 -432px;
+}
+.table-format-2013 .table-format-light10 {
+  background-position: 0 -480px;
+}
+.table-format-2013 .table-format-light11 {
+  background-position: 0 -528px;
+}
+.table-format-2013 .table-format-light12 {
+  background-position: 0 -576px;
+}
+.table-format-2013 .table-format-light13 {
+  background-position: 0 -624px;
+}
+.table-format-2013 .table-format-light14 {
+  background-position: 0 -672px;
+}
+.table-format-2013 .table-format-light15 {
+  background-position: 0 -720px;
+}
+.table-format-2013 .table-format-light16 {
+  background-position: 0 -768px;
+}
+.table-format-2013 .table-format-light17 {
+  background-position: 0 -816px;
+}
+.table-format-2013 .table-format-light18 {
+  background-position: 0 -864px;
+}
+.table-format-2013 .table-format-light19 {
+  background-position: 0 -912px;
+}
+.table-format-2013 .table-format-light20 {
+  background-position: 0 -960px;
+}
+.table-format-2013 .table-format-light21 {
+  background-position: 0 -1008px;
+}
+.table-format-2013 .table-format-medium1 {
+  background-position: 0 -1056px;
+}
+.table-format-2013 .table-format-medium2 {
+  background-position: 0 -1104px;
+}
+.table-format-2013 .table-format-medium3 {
+  background-position: 0 -1152px;
+}
+.table-format-2013 .table-format-medium4 {
+  background-position: 0 -1200px;
+}
+.table-format-2013 .table-format-medium5 {
+  background-position: 0 -1248px;
+}
+.table-format-2013 .table-format-medium6 {
+  background-position: 0 -1296px;
+}
+.table-format-2013 .table-format-medium7 {
+  background-position: 0 -1344px;
+}
+.table-format-2013 .table-format-medium8 {
+  background-position: 0 -1392px;
+}
+.table-format-2013 .table-format-medium9 {
+  background-position: 0 -1440px;
+}
+.table-format-2013 .table-format-medium10 {
+  background-position: 0 -1488px;
+}
+.table-format-2013 .table-format-medium11 {
+  background-position: 0 -1536px;
+}
+.table-format-2013 .table-format-medium12 {
+  background-position: 0 -1584px;
+}
+.table-format-2013 .table-format-medium13 {
+  background-position: 0 -1632px;
+}
+.table-format-2013 .table-format-medium14 {
+  background-position: 0 -1680px;
+}
+.table-format-2013 .table-format-medium15 {
+  background-position: 0 -1728px;
+}
+.table-format-2013 .table-format-medium16 {
+  background-position: 0 -1776px;
+}
+.table-format-2013 .table-format-medium17 {
+  background-position: 0 -1824px;
+}
+.table-format-2013 .table-format-medium18 {
+  background-position: 0 -1872px;
+}
+.table-format-2013 .table-format-medium19 {
+  background-position: 0 -1920px;
+}
+.table-format-2013 .table-format-medium20 {
+  background-position: 0 -1968px;
+}
+.table-format-2013 .table-format-medium21 {
+  background-position: 0 -2016px;
+}
+.table-format-2013 .table-format-medium22 {
+  background-position: 0 -2064px;
+}
+.table-format-2013 .table-format-medium23 {
+  background-position: 0 -2112px;
+}
+.table-format-2013 .table-format-medium24 {
+  background-position: 0 -2160px;
+}
+.table-format-2013 .table-format-medium25 {
+  background-position: 0 -2208px;
+}
+.table-format-2013 .table-format-medium26 {
+  background-position: 0 -2256px;
+}
+.table-format-2013 .table-format-medium27 {
+  background-position: 0 -2304px;
+}
+.table-format-2013 .table-format-medium28 {
+  background-position: 0 -2352px;
+}
+.table-format-2013 .table-format-dark1 {
+  background-position: 0 -2400px;
+}
+.table-format-2013 .table-format-dark2 {
+  background-position: 0 -2448px;
+}
+.table-format-2013 .table-format-dark3 {
+  background-position: 0 -2496px;
+}
+.table-format-2013 .table-format-dark4 {
+  background-position: 0 -2544px;
+}
+.table-format-2013 .table-format-dark5 {
+  background-position: 0 -2592px;
+}
+.table-format-2013 .table-format-dark6 {
+  background-position: 0 -2640px;
+}
+.table-format-2013 .table-format-dark7 {
+  background-position: 0 -2688px;
+}
+.table-format-2013 .table-format-dark8 {
+  background-position: 0 -2736px;
+}
+.table-format-2013 .table-format-dark9 {
+  background-position: 0 -2784px;
+}
+.table-format-2013 .table-format-dark10 {
+  background-position: 0 -2832px;
+}
+.table-format-2013 .table-format-dark11 {
+  background-position: 0 -2880px;
+}

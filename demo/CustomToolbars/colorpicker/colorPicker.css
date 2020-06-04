@@ -1,0 +1,110 @@
+.colorPickerContainer {
+    position: absolute;
+    width: 380px;
+    z-index: 9999;
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+    box-sizing: content-box;
+    display: none;
+}
+
+.header {
+    height: 28px;
+    padding: 5px 10px;
+    font-size: 20px;
+    background-color: white;
+    box-sizing: content-box;
+    display: block;
+}
+
+.themeColorsLabel {
+    height: 20px;
+    padding: 5px 10px;
+    font-size: 14px;
+    box-sizing: content-box;
+}
+
+.themeColorsContainer {
+    height: 215px;
+    background-color: white;
+    padding: 10px;
+    box-sizing: content-box;
+}
+
+.standardColorsLabel {
+    height: 20px;
+    padding: 5px 10px;
+    font-size: 14px;
+    box-sizing: content-box;
+}
+
+.standardColorsContainer {
+    height: 40px;
+    padding: 10px;
+    background-color: white;
+    box-sizing: content-box;
+}
+
+div.color-cell {
+    position: relative;
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin: 3px;
+    border: 1px solid #d2d2d2;
+    box-sizing: border-box;
+}
+
+.nofill, .autocolor {
+    border-top: 1px solid #f3f3f3;
+    height: 40px;
+    padding: 5px 8px;
+    box-sizing: content-box;
+    display: none;
+}
+
+.nofill {
+    background-color: #d2d2d2;
+    border: 2px solid transparent;
+}
+
+.autocolor {
+    background-color: white;
+}
+
+.nofill:hover { 
+    border-color: gray;
+}
+    
+.autocolor:hover {
+    background-color: #f3f3f3;
+}
+
+.nofill-Color, .auto-Color {
+    float: left;
+    height: 24px;
+    width: 24px;
+    margin: 8px;
+    box-sizing: border-box;
+}
+
+.nofill-Color {
+    border: 1px solid gray;
+}
+
+.nofill-Text, .auto-Text {
+    float: left;
+    height: 26px;
+    margin: 5px;
+    padding: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.color-cell:hover {
+    border: 3px solid #d2d2d2;
+}
+
+.color-cell.selected {
+    border: 1px solid black;
+}

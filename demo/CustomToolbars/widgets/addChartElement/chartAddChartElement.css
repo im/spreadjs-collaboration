@@ -1,0 +1,301 @@
+#chart-add-element {
+    overflow: visible;
+}
+.add-chart-element-container {
+    width: 160px;
+    border: 1px solid rgba(0,0,0,.15);
+    background-color: white;
+    box-sizing: content-box;
+}
+
+.add-chart-element-container div {
+    box-sizing: content-box;
+}
+
+.addChartElementSubMenu, .addChartElementSubMenu div {
+    box-sizing: content-box;
+}
+
+.addChartElementSubMenu {
+    position: absolute;
+    left: 100%;
+}
+
+.add-chart-element-item {
+    width: 100%;
+    height: 20px;
+    padding: 12px 0;
+}
+
+.add-chart-element-item-active {
+    background-color: #e6e6e6;
+}
+
+.add-chart-element-item .imgItemContainer {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin: 1px 8px 1px 5px;
+}
+
+.add-chart-element-item .imgItemContainer .imgItem {
+    width: 16px;
+    height: 16px;
+    margin: 2px;
+    background-image: url(../../css/images/chartIcon.png);
+}
+
+.add-chart-element-item .textItem {
+    width: 120px;
+    height: 20px;
+    float: left;
+    line-height: 20px;
+}
+
+.add-chart-element-item .trangleItem {
+    width: 0;
+    height: 0;
+    border: solid 4px rgba(1, 1, 1, 0);
+    border-left: solid 4px rgb(114, 114, 114);
+    float: left;
+    margin-top: 6px;
+}
+
+.add-chart-element-container-subMenu {
+    width: 240px;
+    border: 1px solid rgba(0,0,0,.15);
+    background-color: white;
+    position: absolute;
+}
+
+.add-chart-element-item .imgItemContainer .axes {
+    background-position: 0 -16px;
+}
+
+.add-chart-element-item .imgItemContainer .axisTitles {
+    background-position: 0 -32px;
+}
+
+.add-chart-element-item .imgItemContainer .chartTitle {
+    background-position: 0 -48px;
+}
+
+.add-chart-element-item .imgItemContainer .dataLabels {
+    background-position: 0 -64px;
+}
+
+.add-chart-element-item .imgItemContainer .gridLines {
+    background-position: 0 -80px;
+}
+
+.add-chart-element-item .imgItemContainer .legend {
+    background-position: 0 -96px;
+}
+
+.add-chart-element-subItem .imgItemContainer {
+    width: 34px;
+    height: 34px;
+    float: left;
+    margin: 1px 16px 1px 5px;
+}
+
+.add-chart-element-subItem .imgItemContainer .imgItem {
+    width: 32px;
+    height: 32px;
+    margin: 1px;
+    background-image: url(../../css/images/chartIcon.png);
+}
+
+.add-chart-element-subItem .imgItemContainer .axesPrimaryHorizontal {
+    background-position: -16px -352px;
+}
+
+.add-chart-element-subItem .imgItemContainer .axesPrimaryVertical {
+    background-position: -16px -384px;
+}
+
+.add-chart-element-subItem .imgItemContainer .axesSecondaryHorizontal {
+    background-position: -16px -416px;
+}
+
+.add-chart-element-subItem .imgItemContainer .axesSecondaryVertical {
+    background-position: -16px -448px;
+}
+
+.add-chart-element-subItem .imgItemContainer .axesTitlesPrimaryHorizontal {
+    background-position: -16px -480px;
+}
+
+.add-chart-element-subItem .imgItemContainer .axesTitlesPrimaryVertical {
+    background-position: -16px -512px;
+}
+
+.add-chart-element-subItem .imgItemContainer .axesTitlesSecondaryHorizontal {
+    background-position: -16px -544px;
+}
+
+.add-chart-element-subItem .imgItemContainer .axesTitlesSecondaryVertical {
+    background-position: -16px -576px;
+}
+
+.add-chart-element-subItem .imgItemContainer .chartTitleNone {
+    background-position: -16px -608px;
+}
+
+.add-chart-element-subItem .imgItemContainer .chartTitleAboveChart {
+    background-position: -16px -640px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsNone {
+    background-position: -16px -672px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsNone-ScatterGroup{
+    background-position: -16px -800px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsNone-LineGroup{
+    background-position: -16px -800px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsNone-PieGroup{
+    background-position: -16px -928px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsCenter {
+    background-position: -16px -704px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsCenter-LineGroup {
+    background-position: -16px -836px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsCenter-ScatterGroup {
+    background-position: -16px -836px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsCenter-PieGroup {
+    background-position: -16px -960px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsInsideEnd {
+    background-position: -16px -736px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsInsideEnd-PieGroup {
+    background-position: -16px -992px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsOutsideEnd {
+    background-position: -16px -768px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsOutsideEnd-PieGroup {
+    background-position: -16px -1024px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsBestFit-PieGroup {
+    background-position: -16px -1056px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsAbove-LineGroup {
+    background-position: -16px -864px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsBelow-LineGroup {
+    background-position: -16px -896px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsAbove-ScatterGroup {
+    background-position: -16px -864px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsBelow-ScatterGroup {
+    background-position: -16px -896px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsShow {
+    background-position: -16px -704px;
+}
+
+.add-chart-element-subItem .imgItemContainer .dataLabelsShow-PieGroup {
+    background-position: -16px -704px;
+}
+
+.add-chart-element-subItem .imgItemContainer .gridLinesPrimaryMajorHorizontal {
+    background-position: -16px -1088px;
+}
+
+.add-chart-element-subItem .imgItemContainer .gridLinesPrimaryMajorVertical {
+    background-position: -16px -1120px;
+}
+
+.add-chart-element-subItem .imgItemContainer .gridLinesPrimaryMinorHorizontal {
+    background-position: -16px -1152px;
+}
+
+.add-chart-element-subItem .imgItemContainer .gridLinesPrimaryMinorVertical {
+    background-position: -16px -1184px;
+}
+
+.add-chart-element-subItem .imgItemContainer .gridLinesSecondaryMajorHorizontal {
+    background-position: -16px -1088px;
+}
+
+.add-chart-element-subItem .imgItemContainer .gridLinesSecondaryMajorVertical {
+    background-position: -16px -1120px;
+}
+
+.add-chart-element-subItem .imgItemContainer .gridLinesSecondaryMinorHorizontal {
+    background-position: -16px -1152px;
+}
+
+.add-chart-element-subItem .imgItemContainer .gridLinesSecondaryMinorVertical {
+    background-position: -16px -1184px;
+}
+
+.add-chart-element-subItem .imgItemContainer .legendNone {
+    background-position: -16px -1216px;
+}
+
+.add-chart-element-subItem .imgItemContainer .legendRight {
+    background-position: -16px -1248px;
+}
+
+.add-chart-element-subItem .imgItemContainer .legendTop {
+    background-position: -16px -1280px;
+}
+
+.add-chart-element-subItem .imgItemContainer .legendLeft {
+    background-position: -16px -1312px;
+}
+
+.add-chart-element-subItem .imgItemContainer .legendBottom {
+    background-position: -16px -1344px;
+}
+
+.add-chart-element-subItem {
+    width: 100%;
+    height: 34px;
+    padding: 5px 0;
+}
+
+.add-chart-element-subItem-active {
+    background-color: #e6e6e6;
+}
+
+.add-chart-element-subItem .textItem {
+    width: 180px;
+    height: 20px;
+    float: left;
+    line-height: 20px;
+    padding: 10px 0;
+}
+
+.img-item-choosed {
+    background-color: rgb(197, 197, 197);
+}
+
+.img-item-no-choose {
+    background-color: transparent;
+}

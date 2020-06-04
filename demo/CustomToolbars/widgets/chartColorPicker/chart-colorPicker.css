@@ -1,0 +1,49 @@
+.chart-colorpicker-container {
+    width: 248px;
+    height: 340px;
+    padding: 1px;
+    border: 1px solid #d3d3d3;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.chart-colorpicker-container .header-container {
+    width: 230px;
+    background-color: #f1f1f1;
+    height: 20px;
+    padding: 2px 0;
+}
+.chart-colorpicker-container .header-container span {
+    margin: 0 4px;
+    font-size: 14px;
+}
+
+.chart-colorpicker-container .group-content {
+    margin: 2px 0;
+    width: 230px;
+    height: auto;
+}
+
+.chart-colorpicker-container .color-items-container {
+    width: 216px;
+    height: 30px;
+    padding: 2px 5px;
+    border: 2px solid transparent;
+}
+
+.chart-colorpicker-container .color-items-container:hover {
+    border: 2px solid #d3d3d3;
+}
+
+.chart-colorpicker-container .selected {
+    border: 2px solid #d3d3d3;
+}
+
+.chart-colorpicker-container .color-item {
+    display: inline-block;
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin: 0 3px;
+    user-select: none;
+}
